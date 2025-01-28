@@ -1,0 +1,16 @@
+# Eclipse
+.metadata/
+
+# Maven
+target/
+
+# Arquivos compilados
+*.class
+*.jar
+*.war
+*.ear
+
+# Diretórios de build e distribuição
+build/
+dist/
+out/
