@@ -14,7 +14,7 @@
 		<h1 class="self-center font-bold text-4xl mb-4 text-gray-800">Cadastro</h1>
 		<p class="self-center text-gray-600 mb-10">Por favor, insira suas informações para continuar.</p>
 		
-		<form action="disconnected.do?action=login" method="POST" class="flex flex-col">
+		<form action="disconnected.do?action=register" method="POST" class="flex flex-col">
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 				<span class="material-icons text-gray-500">person</span>
 				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="name" placeholder="Nome" required/>
@@ -31,7 +31,7 @@
 			</div>
 			
 			<div class="flex items-center self-center w-full gap-5 justify-around">
-		        <a href="disconnected.do?action=home_page" class="bg-blue-700 w-1/2 py-4 text-md text-center font-bold text-white rounded-lg hover:bg-blue-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+		        <a href="disconnected.do?action=home" class="bg-blue-700 w-1/2 py-4 text-md text-center font-bold text-white rounded-lg hover:bg-blue-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
 		            Voltar
 		        </a>
 		
@@ -39,5 +39,6 @@
     		</div>
 		</form>
 	</div>
+	
 </body>
 </html>

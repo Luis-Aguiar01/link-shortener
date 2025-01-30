@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import br.edu.ifsp.dsw1.controller.command.Command;
 import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
+import br.edu.ifsp.dsw1.controller.command.GetLoginPageCommand;
+import br.edu.ifsp.dsw1.controller.command.GetRegisterPageCommand;
 import br.edu.ifsp.dsw1.controller.command.HomeCommand;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,11 +18,15 @@ public class DisconnectedServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		var action = request.getAttribute("action");
+		var action = request.getParameter("action");
 		Command command = null;
 		
 		if ("home".equals(action)) {
 			command = new HomeCommand();
+		} else if ("login-page".equals(action)) {
+			command = new GetLoginPageCommand();
+		} else if ("register-page".equals(action)) {
+			command = new GetRegisterPageCommand();
 		} else {
 			command = new ErrorCommand();
 		}

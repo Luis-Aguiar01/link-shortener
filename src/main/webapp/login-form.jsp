@@ -26,7 +26,7 @@
 			</div>
 			
 			<div class="flex items-center self-center w-full gap-5 justify-around">
-		        <a href="disconnected.do?action=home_page" class="bg-blue-700 w-1/2 py-4 text-md text-center font-bold text-white rounded-lg hover:bg-blue-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
+		        <a href="disconnected.do?action=home" class="bg-blue-700 w-1/2 py-4 text-md text-center font-bold text-white rounded-lg hover:bg-blue-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">
 		            Voltar
 		        </a>
 		
@@ -34,5 +34,6 @@
     		</div>
 		</form>
 	</div>
+	
 </body>
 </html>

@@ -16,7 +16,7 @@ public class LoggedServlet extends HttpServlet {
 	private final static long serialVersionUID = 1L;
 	
 	public void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		var action = request.getAttribute("action");
+		var action = request.getParameter("action");
 		Command command = null;
 		
 		if ("home".equals(action)) {
