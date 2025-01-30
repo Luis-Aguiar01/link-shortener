@@ -8,9 +8,9 @@
 <title>Home Page</title>
 <jsp:include page="includes/links.html" />
 </head>
-<body class="bg-gradient-to-r from-black to-gray-800 min-h-screen flex flex-col font-mono box-border">
+<body class="flex flex-col min-h-screen font-mono bg-gradient-to-t from-gray-800 to-gray-900">
 	
-	<jsp:include page="includes/header.jsp" />
+	<jsp:include page="logged/logged-header.jsp" />
 
 	<div class="self-center w-2/3 mt-8">
 		<h1 class="font-bold text-4xl text-center text-white mt-10 leading-relaxed">Welcome to your page <span> &#128075;</span></h1>
