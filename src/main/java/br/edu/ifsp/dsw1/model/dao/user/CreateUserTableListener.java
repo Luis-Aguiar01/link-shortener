@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.WebListener;
 public class CreateUserTableListener implements ServletContextListener {
 	
 	private static final String CREATE_USER_TABLE_SQL = "CREATE TABLE IF NOT EXISTS user (\r\n"
-			+ "	email VARCHAR(50) PRIMARY KEY,\r\n"
+			+ "	   email VARCHAR(50) PRIMARY KEY,\r\n"
 			+ "    name VARCHAR(200) NOT NULL,\r\n"
 			+ "    password VARCHAR(50) NOT NULL\r\n"
 			+ ")";

@@ -5,7 +5,6 @@
 		name="jdbc/mysql"
 		auth="Container"
 		type="javax.sql.DataSource"
-		initialSize="10"
 		maxTotal="50"
 		minIdle="5"
 		maxIdle="15"
