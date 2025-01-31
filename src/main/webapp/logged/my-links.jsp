@@ -13,7 +13,7 @@
 	
 	<h1 class="font-bold text-4xl text-center text-white mt-10 mb-8 leading-relaxed">Meus Links &#128279;</h1>
 	
-	<div class="container mx-auto px-4 max-w-7xl">
+	<div class="container mx-auto px-4 max-w-7xl mb-10">
 		<div class="rounded-lg shadow-lg overflow-hidden">
 			<table class="w-full text-sm text-left border-collapse">
 				<thead>
@@ -32,13 +32,13 @@
 							</a>
 						</td>
 						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium space-x-4">
-							<a href="#" class="tooltip" title="Editar">
+							<a href="#" title="Editar">
 								<span class="material-icons text-blue-500 hover:text-blue-400 transition duration-300">edit</span>
 							</a> 
-							<a href="#" class="tooltip" title="Excluir">
+							<a href="#" title="Excluir">
 								<span class="material-icons text-red-500 hover:text-red-400 transition duration-300">delete</span>
 							</a> 
-							<a href="#" class="tooltip" title="Detalhes">
+							<a href="#" title="Detalhes">
 								<span class="material-icons text-gray-500 hover:text-gray-400 transition duration-300">info</span>
 							</a> 
 						</td>
@@ -47,6 +47,8 @@
 			</table>
 		</div>
 	</div>
+	
+	<jsp:include page="../includes/footer.html" />
 	
 </body>
 </html>

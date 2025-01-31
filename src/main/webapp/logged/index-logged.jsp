@@ -12,7 +12,7 @@
 	
 	<jsp:include page="./includes/logged-header.jsp" />
 
-	<div class="self-center w-2/3 mt-8">
+	<div class="self-center w-2/3 mt-8 mb-10">
 		<h1 class="font-bold text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Encurte o seu link em apenas 1 segundo</h1>
 		
 		<form action="disconnected.do?action=login-user" method="POST" class="flex flex-col">
@@ -34,33 +34,9 @@
 			<p>Total de cliques: <span class="font-bold">250</span></p>
 		</div>
 
-		<div class="text-center mt-10">
-			<a href="disconnected.do?action=register-page" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300">Cadastre-se para mais funcionalidades</a>
-		</div>
 	</div>	
 	
-	<footer class="bg-gray-900 text-white py-6 mt-10">
-		<div class="container mx-auto px-4">
-			<div class="flex flex-col justify-between items-center">
-				<div class="text-center mb-4">
-					<p class="text-sm">&copy; 2025 Encurtador de URL. Todos os direitos reservados.</p>
-				</div>
-				<div class="flex space-x-5 mt-1">
-					<a href="#" class="text-gray-400 hover:text-white transition duration-300">Política de Privacidade</a>
-					<a href="#" class="text-gray-400 hover:text-white transition duration-300">Termos de Serviço</a>
-					<a href="#" class="text-gray-400 hover:text-white transition duration-300">Contato</a>
-				</div>
-				<div class="flex space-x-4 mt-3">
-					<a href="#" class="text-gray-400 hover:text-white transition duration-300">
-						<i class="fab fa-facebook"></i>
-					</a>
-					<a href="#" class="text-gray-400 hover:text-white transition duration-300">
-						<i class="fab fa-instagram"></i>
-					</a>
-				</div>
-			</div>
-		</div>
-	</footer>
-	
+	<jsp:include page="../includes/footer.html" />
+
 </body>
 </html>

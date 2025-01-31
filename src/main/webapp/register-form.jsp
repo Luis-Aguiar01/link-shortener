@@ -14,7 +14,7 @@
 
 	<jsp:include page="/includes/header.jsp" />
 
-	<div class="flex flex-col p-10 w-1/2 bg-white rounded-lg shadow-2xl self-center mt-5">
+	<div class="flex flex-col p-10 w-1/2 bg-white rounded-lg shadow-2xl self-center mt-5 mb-10">
 		<h1 class="self-center font-bold text-4xl mb-10 text-gray-800">Cadastro</h1>
 		
 		<% if (saved != null && !saved) { %>
@@ -47,6 +47,8 @@
     		</div>
 		</form>
 	</div>
+	
+	<jsp:include page="/includes/footer.html" />
 	
 </body>
 </html>
