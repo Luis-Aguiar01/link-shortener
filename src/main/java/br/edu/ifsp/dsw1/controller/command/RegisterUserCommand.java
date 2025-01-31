@@ -22,15 +22,6 @@ public class RegisterUserCommand implements Command{
 		var user = new User(name, email, passwd, false);
 		var saved = dao.create(user);
 		
-		String mensagem;
-		
-		if (saved) {
-			mensagem = "Usuário Cadastrado com Sucesso.";
-		}else{
-			mensagem = "Erro ao Cadastrar o Usuário.";
-		}
-		
-		request.setAttribute("mensagem", mensagem);
 		request.setAttribute("saved", saved);
 		
 		return "register-form.jsp";

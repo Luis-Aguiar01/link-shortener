@@ -7,14 +7,12 @@
 <title>Login</title>
 <jsp:include page="includes/links.html" />
 </head>
-<%-- <body class="flex flex-col justify-center items-center min-h-screen bg-gradient-to-r from-gray-800 to-gray-900"> --%>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
 
 	<jsp:include page="/includes/header.jsp" />
 
-	<div class="flex flex-col p-10 w-1/2 bg-white rounded-lg shadow-2xl">
-		<h1 class="self-center font-bold text-4xl mb-4 text-gray-800">Login</h1>
-		<p class="self-center text-gray-600 mb-10">Por favor, insira suas informações para continuar.</p>
+	<div class="flex flex-col p-10 w-1/2 bg-white rounded-lg shadow-2xl self-center mt-20">
+		<h1 class="self-center font-bold text-4xl mb-10 text-gray-800">Login</h1>
 		
 		<form action="disconnected.do?action=login-user" method="POST" class="flex flex-col">
 			
@@ -27,6 +25,8 @@
 				<span class="material-icons text-gray-500">lock</span>
 				<input class="px-3 py-4 bg-transparent outline-none text-base w-full placeholder-gray-500" type="password" name="password" placeholder="Password" required/>
 			</div>
+			
+			<p class="self-center text-gray-600 mb-10">Não tem uma conta? <a href="disconnected.do?action=register-page" class="text-blue-500">Clique aqui para se registrar.</a></p>
 			
 			<div class="flex items-center self-center w-full gap-5 justify-around">
 		        <input class="text-md bg-black py-4 px-6 w-1/2 rounded-lg text-white hover:bg-gray-800 cursor-pointer font-bold focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-300" type="submit" value="Enviar">
