@@ -3,7 +3,6 @@ package br.edu.ifsp.dsw1.model.entity;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 
 public class User {
 
@@ -12,27 +11,23 @@ public class User {
 	private String email;
 	//private List<Link> listaLinks;
 	
-	public User() {
-		
-	}
+	public User() {}
 	
     public User(String name, String email, String password) {
         this(name, email, password, false);
     }
 
-
 	public User(String name, String email, String password, boolean fromDB) {
-		 this.name = name;
-	     this.email = email;
+		this.name = name;
+		this.email = email;
 	     
-	   if (fromDB) {
-            this.password = password;
+		if (fromDB) {
+			this.password = password;
         } else {
             this.password = hashSHA256(password);
         }
 	}
-
-
+	
 	public String getName() {
 		return name;
 	}
@@ -59,25 +54,17 @@ public class User {
 	}
 	
 	public static boolean authenticate(User user, String email, String password) {
-		
-		if(user != null) {
+		if (user != null) {
 			return hashSHA256(password).equals(user.getPassword()) && email.equals(user.getEmail());
 		}
-		
 		return false;
 	}
 	
-	
 	private static String hashSHA256(String password) {
-		
 		try {
-          
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
-
-          
             byte[] hashBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-
-        
+            
             StringBuilder hexString = new StringBuilder();
             for (byte b : hashBytes) {
                 String hex = Integer.toHexString(0xff & b);
@@ -87,12 +74,7 @@ public class User {
 
             return hexString.toString();
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
             throw new RuntimeException("Erro ao criptografar");
         }
-		
-		
 	}
-	
-	
 }

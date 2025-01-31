@@ -11,16 +11,19 @@ import jakarta.servlet.http.HttpServletResponse;
 public class RegisterUserCommand implements Command{
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var name = request.getParameter("name");
 		var email = request.getParameter("email");
 		var passwd = request.getParameter("password");
 		
 		var dao = new UserDAOFactory().factory();
-		var user = new User(name, email, passwd, false);
-		var saved = dao.create(user);
+		var foundUser = dao.findByEmail(email);
+		var saved = false;
+		
+		if (foundUser == null) {
+			var user = new User(name, email, passwd, false);
+			saved = dao.create(user);
+		}
 		
 		request.setAttribute("saved", saved);
 		

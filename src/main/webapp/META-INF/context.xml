@@ -10,7 +10,7 @@
 		maxIdle="15"
 		maxWaitMillis="30000"
 		username="root"
-		password="root"
+		password="Naruto123"
 		driverClassName="com.mysql.cj.jdbc.Driver"
-		url="jdbc:mysql://localhost:3307/links_db" />
+		url="jdbc:mysql://localhost:3306/links_db" />
 </Context>

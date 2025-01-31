@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<% var message = request.getAttribute("mensagem"); %>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +14,12 @@
 
 	<jsp:include page="/includes/header.jsp" />
 
-	<div class="flex flex-col p-10 w-1/2 bg-white rounded-lg shadow-2xl self-center mt-20">
-		<h1 class="self-center font-bold text-4xl mb-10 text-gray-800">Login</h1>
+	<div class="flex flex-col p-10 w-1/2 bg-white rounded-lg shadow-2xl self-center mt-5">
+		<h1 class="self-center font-bold text-4xl mb-5 text-gray-800">Login</h1>
+		
+		<% if (message != null) {%>
+			<p class="self-center text-red-600 mb-5"><%= message %></p>
+		<% } %>
 		
 		<form action="disconnected.do?action=login-user" method="POST" class="flex flex-col">
 			

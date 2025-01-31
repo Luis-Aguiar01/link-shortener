@@ -11,9 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class LoginCommand implements Command{
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var email = request.getParameter("email");
 		var passwd = request.getParameter("password");
 		
@@ -23,12 +21,12 @@ public class LoginCommand implements Command{
 
 		String view;
 		
-		if (autorized){
+		if (autorized) {
 			var session = request.getSession(true);
 			session.setAttribute("user", user);
 			view = "logged.do?action=logged-page";
 		} else {
-			request.setAttribute("mensagem", "Usuário ou Senha Inválido.");
+			request.setAttribute("mensagem", "Usuário ou senha inválido.");
 			view = "disconnected.do?action=login-page";
 		}
 		
