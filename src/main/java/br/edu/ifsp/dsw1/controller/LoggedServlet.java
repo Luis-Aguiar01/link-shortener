@@ -4,7 +4,8 @@ import java.io.IOException;
 
 import br.edu.ifsp.dsw1.controller.command.Command;
 import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
-import br.edu.ifsp.dsw1.controller.command.HomeCommand;
+import br.edu.ifsp.dsw1.controller.command.GetLoggedPageCommand;
+import br.edu.ifsp.dsw1.controller.command.LogoutCommand;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -19,8 +20,10 @@ public class LoggedServlet extends HttpServlet {
 		var action = request.getParameter("action");
 		Command command = null;
 		
-		if ("home".equals(action)) {
-			command = new HomeCommand();
+		if ("logged-page".equals(action)) {
+			command = new GetLoggedPageCommand();
+		} else if ("logout".equals(action)) {
+			command = new LogoutCommand();
 		} else {
 			command = new ErrorCommand();
 		}

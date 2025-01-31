@@ -14,7 +14,7 @@
 		<h1 class="self-center font-bold text-4xl mb-4 text-gray-800">Cadastro</h1>
 		<p class="self-center text-gray-600 mb-10">Por favor, insira suas informações para continuar.</p>
 		
-		<form action="disconnected.do?action=register" method="POST" class="flex flex-col">
+		<form action="disconnected.do?action=register-user" method="POST" class="flex flex-col">
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 				<span class="material-icons text-gray-500">person</span>
 				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="name" placeholder="Nome" required/>

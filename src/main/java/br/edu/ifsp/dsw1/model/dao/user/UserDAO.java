@@ -1,6 +1,6 @@
 package br.edu.ifsp.dsw1.model.dao.user;
 
-import br.edu.ifsp.dsw1.model.dao.entity.User;
+import br.edu.ifsp.dsw1.model.entity.User;
 
 public interface UserDAO {
 	

@@ -4,12 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.edu.ifsp.dsw1.model.dao.connection.DatabaseConnection;
-import br.edu.ifsp.dsw1.model.dao.entity.User;
+import br.edu.ifsp.dsw1.model.entity.User;
 
 public class UserDAOImp implements UserDAO{
 	
 	private static final String INSERT_USER_SQL = "INSERT INTO user(email, name, password) VALUES(?, ?, ?)";
 	private static final String FIND_BY_EMAIL_SQL = "SELECT email, name, password FROM user WHERE email = ?";
+	
 	@Override
 	public User findByEmail(String email) {
 		User user = null;

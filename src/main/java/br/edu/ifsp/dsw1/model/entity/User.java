@@ -1,4 +1,4 @@
-package br.edu.ifsp.dsw1.model.dao.entity;
+package br.edu.ifsp.dsw1.model.entity;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -21,7 +21,7 @@ public class User {
     }
 
 
-	public User(String name, String password, String email, boolean fromDB) {
+	public User(String name, String email, String password, boolean fromDB) {
 		 this.name = name;
 	     this.email = email;
 	     
@@ -58,10 +58,12 @@ public class User {
 		
 	}
 	
-	public static boolean authenticate(User user, String password, String email) {
+	public static boolean authenticate(User user, String email, String password) {
+		
 		if(user != null) {
 			return hashSHA256(password).equals(user.getPassword()) && email.equals(user.getEmail());
 		}
+		
 		return false;
 	}
 	

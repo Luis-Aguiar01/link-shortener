@@ -7,6 +7,8 @@ import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
 import br.edu.ifsp.dsw1.controller.command.GetLoginPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetRegisterPageCommand;
 import br.edu.ifsp.dsw1.controller.command.HomeCommand;
+import br.edu.ifsp.dsw1.controller.command.RegisterUserCommand;
+import br.edu.ifsp.dsw1.controller.command.LoginCommand;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -27,6 +29,10 @@ public class DisconnectedServlet extends HttpServlet {
 			command = new GetLoginPageCommand();
 		} else if ("register-page".equals(action)) {
 			command = new GetRegisterPageCommand();
+		} else if ("register-user".equals(action)) {
+			command = new RegisterUserCommand();
+		} else if ("login-user".equals(action)) {
+			command = new LoginCommand();
 		} else {
 			command = new ErrorCommand();
 		}

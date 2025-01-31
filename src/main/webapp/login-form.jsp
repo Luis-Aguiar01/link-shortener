@@ -13,7 +13,7 @@
 		<h1 class="self-center font-bold text-4xl mb-4 text-gray-800">Login</h1>
 		<p class="self-center text-gray-600 mb-10">Por favor, insira suas informações para continuar.</p>
 		
-		<form action="disconnected.do?action=login" method="POST" class="flex flex-col">
+		<form action="disconnected.do?action=login-user" method="POST" class="flex flex-col">
 			
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 				<span class="material-icons text-gray-500">mail</span>

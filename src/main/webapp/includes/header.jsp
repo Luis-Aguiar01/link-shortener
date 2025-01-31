@@ -4,7 +4,7 @@
 <header class="flex p-6 items-center">
 	<div class="flex items-center text-white justify-between w-full">
 		
-		<a href="disconnected.do?action=home_page" class="flex items-center ml-10 gap-2 border-b-2 border-transparent hover:border-white pb-1 text-xl font-bold">
+		<a href="disconnected.do?action=home" class="flex items-center ml-10 gap-2 border-b-2 border-transparent hover:border-white pb-1 text-xl font-bold">
 			<span class="material-icons text-4xl">home</span>
 			<span>Home</span>
 		</a>
