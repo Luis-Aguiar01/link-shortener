@@ -16,8 +16,8 @@
 				Login</a>
 		
 			<a href="disconnected.do?action=register-page" 
-				class="bg-[#138808] px-4 py-4 ml-4 text-md text-center font-bold text-white 
-				rounded-lg hover:bg-green-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300">
+				class="bg-green-600 px-4 py-4 ml-4 text-md text-center font-bold text-white 
+				rounded-lg hover:bg-green-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300">
 				Cadastrar</a>
 		</div>
 		

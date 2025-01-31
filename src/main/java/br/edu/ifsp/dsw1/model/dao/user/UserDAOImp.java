@@ -16,7 +16,7 @@ public class UserDAOImp implements UserDAO{
 		User user = null;
 		
 		try (var connection = DatabaseConnection.getConnection(); 
-				var preparedStatement = connection.prepareStatement(FIND_BY_EMAIL_SQL)){
+			 var preparedStatement = connection.prepareStatement(FIND_BY_EMAIL_SQL)){
 			
 			preparedStatement.setString(1, email);
 			
@@ -41,7 +41,7 @@ public class UserDAOImp implements UserDAO{
 		int row = 0;
 		
 		try (var connection = DatabaseConnection.getConnection(); 
-				var preparedStatement = connection.prepareStatement(INSERT_USER_SQL)){
+			 var preparedStatement = connection.prepareStatement(INSERT_USER_SQL)){
 			
 			preparedStatement.setString(1, user.getEmail());
 			preparedStatement.setString(2, user.getName());
@@ -55,6 +55,4 @@ public class UserDAOImp implements UserDAO{
 
 		return row > 0;
 	}
-	
-
 }
