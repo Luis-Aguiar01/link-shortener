@@ -13,7 +13,7 @@
 	
 	<h1 class="font-bold text-4xl text-center text-white mt-10 mb-8 leading-relaxed">Meus Links &#128279;</h1>
 	
-	<div class="container mx-auto px-4 max-w-7xl mb-10">
+	<div class="container mx-auto px-4 max-w-7xl mb-20">
 		<div class="rounded-lg shadow-lg overflow-hidden">
 			<table class="w-full text-sm text-left border-collapse">
 				<thead>
@@ -24,6 +24,63 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr class="bg-gray-50 hover:bg-gray-100 transition-all">
+						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium">Google</td>
+						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium">
+							<a href="https://www.google.com/" target="_blank" class="text-blue-500 hover:text-blue-400 transition duration-300">
+								https://www.google.com/
+							</a>
+						</td>
+						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium space-x-4">
+							<a href="#" title="Editar">
+								<span class="material-icons text-blue-500 hover:text-blue-400 transition duration-300">edit</span>
+							</a> 
+							<a href="#" title="Excluir">
+								<span class="material-icons text-red-500 hover:text-red-400 transition duration-300">delete</span>
+							</a> 
+							<a href="#" title="Detalhes">
+								<span class="material-icons text-gray-500 hover:text-gray-400 transition duration-300">info</span>
+							</a> 
+						</td>
+					</tr>
+					<tr class="bg-gray-50 hover:bg-gray-100 transition-all">
+						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium">Google</td>
+						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium">
+							<a href="https://www.google.com/" target="_blank" class="text-blue-500 hover:text-blue-400 transition duration-300">
+								https://www.google.com/
+							</a>
+						</td>
+						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium space-x-4">
+							<a href="#" title="Editar">
+								<span class="material-icons text-blue-500 hover:text-blue-400 transition duration-300">edit</span>
+							</a> 
+							<a href="#" title="Excluir">
+								<span class="material-icons text-red-500 hover:text-red-400 transition duration-300">delete</span>
+							</a> 
+							<a href="#" title="Detalhes">
+								<span class="material-icons text-gray-500 hover:text-gray-400 transition duration-300">info</span>
+							</a> 
+						</td>
+					</tr>
+					<tr class="bg-gray-50 hover:bg-gray-100 transition-all">
+						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium">Google</td>
+						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium">
+							<a href="https://www.google.com/" target="_blank" class="text-blue-500 hover:text-blue-400 transition duration-300">
+								https://www.google.com/
+							</a>
+						</td>
+						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium space-x-4">
+							<a href="#" title="Editar">
+								<span class="material-icons text-blue-500 hover:text-blue-400 transition duration-300">edit</span>
+							</a> 
+							<a href="#" title="Excluir">
+								<span class="material-icons text-red-500 hover:text-red-400 transition duration-300">delete</span>
+							</a> 
+							<a href="#" title="Detalhes">
+								<span class="material-icons text-gray-500 hover:text-gray-400 transition duration-300">info</span>
+							</a> 
+						</td>
+					</tr>
 					<tr class="bg-gray-50 hover:bg-gray-100 transition-all">
 						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium">Google</td>
 						<td class="px-8 py-6 border-b border-gray-200 text-center font-medium">

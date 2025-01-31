@@ -12,7 +12,7 @@
 	
 	<jsp:include page="./includes/logged-header.jsp" />
 
-	<div class="self-center w-2/3 mt-8 mb-10">
+	<div class="self-center w-2/3 mt-8 mb-20">
 		<h1 class="font-bold text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Encurte o seu link em apenas 1 segundo</h1>
 		
 		<form action="disconnected.do?action=login-user" method="POST" class="flex flex-col">
@@ -25,7 +25,6 @@
 
 		<div class="text-center text-white mb-10">
 			<p class="mb-4">Compartilhe em redes sociais, e-mails ou mensagens de texto.</p>
-			<p>Cadastre-se e personalize seu link para facilitar o acesso.</p>
 		</div>
 
 		<div class="bg-gray-700 rounded-lg p-6 text-white">

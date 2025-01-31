@@ -11,7 +11,7 @@
 	
 	<jsp:include page="./includes/logged-header.jsp" />
 
-	<div class="self-center w-2/3 mt-8 mb-10">
+	<div class="self-center w-2/3 mt-8 mb-20">
 		<h1 class="font-bold text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Crie o seu link personalizado</h1>
 		
 		<form action="disconnected.do?action=login-user" method="POST" class="flex flex-col">
