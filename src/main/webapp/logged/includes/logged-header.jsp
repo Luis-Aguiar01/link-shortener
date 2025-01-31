@@ -14,7 +14,7 @@
 			<span>Personalizados</span>
 		</a>
 		
-		<a href="logged.do?action=#" class="flex items-center gap-2 border-b-2 border-transparent hover:border-white pb-1 text-lg font-bold">
+		<a href="logged.do?action=my-links-page" class="flex items-center gap-2 border-b-2 border-transparent hover:border-white pb-1 text-lg font-bold">
 			<span class="material-icons text-4xl">person</span>
 			<span>Meus Links</span>
 		</a>

@@ -5,6 +5,7 @@ import java.io.IOException;
 import br.edu.ifsp.dsw1.controller.command.Command;
 import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
 import br.edu.ifsp.dsw1.controller.command.GetLoggedPageCommand;
+import br.edu.ifsp.dsw1.controller.command.GetMyLinksPageCommand;
 import br.edu.ifsp.dsw1.controller.command.LogoutCommand;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,7 +25,10 @@ public class LoggedServlet extends HttpServlet {
 			command = new GetLoggedPageCommand();
 		} else if ("logout".equals(action)) {
 			command = new LogoutCommand();
-		} else {
+		} else if ("my-links-page".equals(action)) {
+			command = new GetMyLinksPageCommand();
+		}
+		else {
 			command = new ErrorCommand();
 		}
 		
