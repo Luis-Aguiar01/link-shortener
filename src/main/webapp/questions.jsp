@@ -65,7 +65,7 @@
 
 		
 		<div class="text-center mt-10">
-			<a href="disconnected.do?action=register-page" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300 w-full sm:w-auto block sm:inline-block"">Entre em Contato</a>
+			<a href="disconnected.do?action=contact-page" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300 w-full sm:w-auto block sm:inline-block"">Entre em Contato</a>
 		</div>
 	</div>	
 	
