@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Detalhes do Link</title>
-<jsp:include page="/includes/links.html" />
+<jsp:include page="../includes/links.html" />
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
 
-	<jsp:include page="/logged/includes/logged-header.jsp" />
+	<jsp:include page="./includes/logged-header.jsp" />
 	
 	<h1 class="font-bold text-4xl text-center text-white mt-10 mb-8 leading-relaxed">Acessos ao seu link "Google"</h1>
 	
@@ -40,7 +41,7 @@
 		</div>
 	</div>
 	
-	<jsp:include page="/includes/footer.html" />
+	<jsp:include page="../includes/footer.html" />
 	
 </body>
 </html>

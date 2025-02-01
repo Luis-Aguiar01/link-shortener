@@ -8,6 +8,7 @@ import br.edu.ifsp.dsw1.controller.command.GetCustomLinkPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetLoggedPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetMyLinksPageCommand;
 import br.edu.ifsp.dsw1.controller.command.LogoutCommand;
+import br.edu.ifsp.dsw1.controller.command.ShortenLinkCommand;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -30,6 +31,8 @@ public class LoggedServlet extends HttpServlet {
 			command = new GetMyLinksPageCommand();
 		} else if ("custom-link-page".equals(action)) {
 			command = new GetCustomLinkPageCommand();
+		} else if ("shorten-link".equals(action)) {
+			command = new ShortenLinkCommand(); // Implementar a lógica
 		}
 		else {
 			command = new ErrorCommand();
