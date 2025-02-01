@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import br.edu.ifsp.dsw1.controller.command.Command;
 import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
+import br.edu.ifsp.dsw1.controller.command.GetContactPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetLoginPageCommand;
+import br.edu.ifsp.dsw1.controller.command.GetQuestionsPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetRegisterPageCommand;
 import br.edu.ifsp.dsw1.controller.command.HomeCommand;
 import br.edu.ifsp.dsw1.controller.command.RegisterUserCommand;
@@ -33,7 +35,12 @@ public class DisconnectedServlet extends HttpServlet {
 			command = new RegisterUserCommand();
 		} else if ("login-user".equals(action)) {
 			command = new LoginCommand();
-		} else {
+		} else if ("questions-page".equals(action)) {
+			command = new GetQuestionsPageCommand();
+		} else if ("contact-page".equals(action)) {
+			command = new GetContactPageCommand();
+		}
+		else {
 			command = new ErrorCommand();
 		}
 	
