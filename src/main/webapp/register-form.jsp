@@ -18,8 +18,8 @@
 		<jsp:include page="/includes/header.jsp" />
 	<% } %>
 
-	<div class="flex flex-col p-10 w-1/2 bg-white rounded-lg shadow-2xl self-center mt-5 mb-10">
-		<h1 class="self-center font-bold text-4xl mb-10 text-gray-800">Cadastro</h1>
+	<div class="w-full bg-transparent flex flex-col p-10 sm:w-1/2 sm:bg-white rounded-lg shadow-2xl self-center mt-5 mb-10">
+		<h1 class="text-white self-center font-bold text-4xl mb-10 sm:text-gray-800">Cadastro</h1>
 		
 		<% if (saved != null && !saved) { %>
 			<p class="self-center text-red-600 mb-10">Não foi possível realizar o cadastro.</p>
@@ -44,7 +44,7 @@
 				<input class="px-3 py-4 bg-transparent outline-none text-base w-full placeholder-gray-500" type="password" name="password" placeholder="Password" required/>
 			</div>
 			
-			<p class="self-center text-gray-600 mb-10">Já tem uma conta? <a href="disconnected.do?action=login-page" class="text-blue-500">Clique aqui para realizar o login.</a></p>
+			<p class="text-white self-center sm:text-gray-600 mb-10">Já tem uma conta? <a href="disconnected.do?action=login-page" class="text-blue-500">Clique aqui para realizar o login.</a></p>
 			
 			<div class="flex items-center self-center w-full gap-5 justify-around">
 		        <input class="text-md bg-blue-600 py-4 px-6 w-1/2 rounded-lg text-white hover:bg-blue-500 cursor-pointer font-bold focus:outline-none transition duration-300" type="submit" value="Enviar">

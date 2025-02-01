@@ -8,7 +8,7 @@
 <title>Dúvidas</title>
 <jsp:include page="includes/links.html" />
 </head>
-<body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
+<body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900 px-1 sm:px-0">
 	
 	<% if (session != null && session.getAttribute("user") != null) { %>
 		<jsp:include page="/logged/includes/logged-header.jsp" />
@@ -16,7 +16,7 @@
 		<jsp:include page="/includes/header.jsp" />
 	<% } %>
 	
-	<div class="self-center w-2/3 mt-8 mb-10">
+	<div class="self-center sm:w-2/3 mt-8 mb-10 w-full">
 		<h1 class="font-bold text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Dúvidas Frequentes</h1>
 		
 		<div class="text-center text-white mb-10">
@@ -26,7 +26,7 @@
 
 		<div class="space-y-4">
 			<div>
-				<h2 class="font-bold text-2xl text-white mb-4">Cadastro e Conta</h2>
+				<h2 class="text-center sm:text-start font-bold text-2xl text-white mb-4">Cadastro e Conta</h2>
 				<div class="bg-gray-700 rounded-lg p-4">
 					<details class="mb-4">
 						<summary class="font-semibold text-white cursor-pointer">Como faço para me cadastrar?</summary>
@@ -41,7 +41,7 @@
 
 			
 			<div>
-				<h2 class="font-bold text-2xl text-white mb-4">Uso do Serviço</h2>
+				<h2 class="text-center sm:text-start font-bold text-2xl text-white mb-4">Uso do Serviço</h2>
 				<div class="bg-gray-700 rounded-lg p-4">
 					<details class="mb-4">
 						<summary class="font-semibold text-white cursor-pointer">Como personalizo meu link?</summary>
@@ -65,7 +65,7 @@
 
 		
 		<div class="text-center mt-10">
-			<a href="disconnected.do?action=register-page" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300">Entre em Contato</a>
+			<a href="disconnected.do?action=register-page" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300 w-full sm:w-auto block sm:inline-block"">Entre em Contato</a>
 		</div>
 	</div>	
 	
