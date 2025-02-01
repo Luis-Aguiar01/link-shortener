@@ -20,7 +20,7 @@ public class LoggedFilter implements Filter {
         var httpRequest = (HttpServletRequest) request;
         var session = httpRequest.getSession(false);
 
-        // Verificar se a URL tem o parâmetro "action" com valor "contacts-page" ou "questions-page"
+        // Verificar se a URL tem o parâmetro "action" com valor "contact-page" ou "questions-page"
         String action = httpRequest.getParameter("action");
 
         if (action != null && (action.equals("contact-page") || action.equals("questions-page"))) {

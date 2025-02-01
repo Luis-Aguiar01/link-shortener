@@ -4,12 +4,9 @@ public class Access {
 	private String ip;
 	private Link link;
 	
-	public Access() {
-		super();
-	}
+	public Access() {}
 
 	public Access(String ip, Link link) {
-		super();
 		this.ip = ip;
 		this.link = link;
 	}

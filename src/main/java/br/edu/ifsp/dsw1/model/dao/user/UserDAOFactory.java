@@ -4,12 +4,11 @@ public class UserDAOFactory {
 	
 	private UserDAOType userType;
 	
-
 	public UserDAOFactory() {
 		this.userType = UserDAOType.DATABASE;
 	}
 	
-	public void UserDaoFactory(UserDAOType usertype) {
+	public UserDAOFactory(UserDAOType usertype) {
 		this.userType = usertype;
 	}
 	
@@ -20,7 +19,7 @@ public class UserDAOFactory {
 			return new UserDAOImp();
 		}
 		default:
-			throw new IllegalArgumentException("Tipo inválido! ");
+			throw new IllegalArgumentException("Tipo inválido.");
 		}
 	}
 	

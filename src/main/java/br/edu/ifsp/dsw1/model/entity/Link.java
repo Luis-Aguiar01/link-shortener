@@ -4,12 +4,9 @@ public class Link {
 	private String customLink;
 	private String link;
 	
-	public Link() {
-		super();
-	}
+	public Link() {}
 
 	public Link(String customLink, String link) {
-		super();
 		this.customLink = customLink;
 		this.link = link;
 	}

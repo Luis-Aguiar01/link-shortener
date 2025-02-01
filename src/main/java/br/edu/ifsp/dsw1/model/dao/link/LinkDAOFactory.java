@@ -7,7 +7,7 @@ public class LinkDAOFactory {
 		this.linkType = LinkDAOType.DATABASE;
 	}
 	
-	public void LinkDaoFactory(LinkDAOType linkType) {
+	public LinkDAOFactory(LinkDAOType linkType) {
 		this.linkType = linkType;
 	}
 	
@@ -18,7 +18,7 @@ public class LinkDAOFactory {
 			return new LinkDAOImp();
 		}
 		default:
-			throw new IllegalArgumentException("Tipo inválido! ");
+			throw new IllegalArgumentException("Tipo inválido.");
 		}
 	}
 	
