@@ -6,14 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Editar Link</title>
-<jsp:include page="../includes/links.html" />
+<jsp:include page="/includes/links.html" />
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
 
-	<jsp:include page="./includes/logged-header.jsp" />
+	<jsp:include page="/includes/header.jsp" />
 	
-	<div class="flex flex-col p-10 w-1/2 bg-white rounded-lg shadow-2xl self-center mt-10 mb-20">
-        <h1 class="self-center font-bold text-3xl mb-10 text-gray-800">Editar Link Personalizado</h1>
+	<div class="w-full bg-transparent flex flex-col p-10 sm:w-1/2 sm:bg-white rounded-lg shadow-2xl self-center mt-10 mb-20">
+        <h1 class="text-2xl text-white text-center self-center font-bold sm:text-3xl mb-10 sm:text-gray-800">Editar Link Personalizado</h1>
 
         <form action="disconnected.do?action=login-user" method="POST" class="flex flex-col">
  
@@ -29,7 +29,7 @@
         </form>
     </div>
 	
-	<jsp:include page="../includes/footer.html" />
+	<jsp:include page="/includes/footer.html" />
 	
 </body>
 </html>
