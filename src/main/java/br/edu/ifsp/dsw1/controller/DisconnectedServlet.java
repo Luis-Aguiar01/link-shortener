@@ -39,8 +39,7 @@ public class DisconnectedServlet extends HttpServlet {
 			command = new GetQuestionsPageCommand();
 		} else if ("contact-page".equals(action)) {
 			command = new GetContactPageCommand();
-		}
-		else {
+		} else {
 			command = new ErrorCommand();
 		}
 	

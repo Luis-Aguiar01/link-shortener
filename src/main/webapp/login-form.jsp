@@ -12,7 +12,11 @@
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
 
-	<jsp:include page="/includes/header.jsp" />
+	<% if (session != null && session.getAttribute("user") != null) { %>
+		<jsp:include page="/logged/includes/logged-header.jsp" />
+	<% } else { %>
+		<jsp:include page="/includes/header.jsp" />
+	<% } %>
 
 	<div class="flex flex-col p-10 w-1/2 bg-white rounded-lg shadow-2xl self-center mt-5 mb-10">
 		<h1 class="self-center font-bold text-4xl mb-5 text-gray-800">Login</h1>

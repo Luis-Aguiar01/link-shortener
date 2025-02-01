@@ -10,8 +10,12 @@
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
 	
-	<jsp:include page="/includes/header.jsp" />
-
+	<% if (session != null && session.getAttribute("user") != null) { %>
+		<jsp:include page="/logged/includes/logged-header.jsp" />
+	<% } else { %>
+		<jsp:include page="/includes/header.jsp" />
+	<% } %>
+	
 	<div class="self-center w-2/3 mt-8 mb-10">
 		<h1 class="font-bold text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Dúvidas Frequentes</h1>
 		
