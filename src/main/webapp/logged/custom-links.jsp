@@ -8,12 +8,12 @@
 <title>Links Personalizados</title>
 <jsp:include page="../includes/links.html" />
 </head>
-<body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
+<body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900 px-2 sm:px-0">
 	
 	<jsp:include page="./includes/logged-header.jsp" />
 
-	<div class="self-center w-2/3 mt-8 mb-20">
-		<h1 class="font-bold text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Crie o seu link personalizado</h1>
+	<div class="w-full self-center sm:w-2/3 mt-8 mb-20">
+		<h1 class="text-3xl font-bold sm:text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Crie o seu link personalizado</h1>
 		
 		<form action="disconnected.do?action=login-user" method="POST" class="flex flex-col">
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">

@@ -28,7 +28,7 @@
 			<button type="submit" class="sm:hidden bg-blue-600 px-3 py-2 mb-5 text-sm text-center font-bold text-white rounded-lg hover:bg-blue-500 cursor-pointer transition duration-300">Encurtar</button>
 		</form>
 		
-		<p class="text-center text-lg text-green-500 font-bold mb-10">Seu link: http://localhost:8080/matheus</p>
+		<p class="text-md text-center sm:text-lg text-green-500 font-bold mb-10 break-all">Seu link: http://localhost:8080/matheus</p>
 
 		<div class="text-center text-white mb-10">
 			<p class="mb-4">Compartilhe em redes sociais, e-mails ou mensagens de texto.</p>
