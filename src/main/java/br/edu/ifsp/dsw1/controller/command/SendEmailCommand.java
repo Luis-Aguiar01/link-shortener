@@ -33,7 +33,6 @@ public class SendEmailCommand implements Command {
 		props.put("mail.smtp.port", "587");
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.debug", "true");
 
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 		    protected PasswordAuthentication getPasswordAuthentication() {
