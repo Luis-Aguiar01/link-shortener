@@ -18,8 +18,8 @@
 		<jsp:include page="/includes/header.jsp" />
 	<% } %>
 
-	<div class="flex flex-col p-10 w-1/2 bg-white rounded-lg shadow-2xl self-center mt-5 mb-10">
-		<h1 class="self-center font-bold text-4xl mb-5 text-gray-800">Login</h1>
+	<div class="w-full bg-transparent flex flex-col p-10 sm:w-1/2 md:w-2/4 sm:bg-white rounded-lg shadow-2xl self-center mt-5 mb-10">
+		<h1 class="text-white self-center font-bold text-4xl mb-5 sm:text-gray-800">Login</h1>
 		
 		<% if (message != null) {%>
 			<p class="self-center text-red-600 mb-5"><%= message %></p>
@@ -37,7 +37,7 @@
 				<input class="px-3 py-4 bg-transparent outline-none text-base w-full placeholder-gray-500" type="password" name="password" placeholder="Password" required/>
 			</div>
 			
-			<p class="self-center text-gray-600 mb-10">Não tem uma conta? <a href="disconnected.do?action=register-page" class="text-blue-500">Clique aqui para se registrar.</a></p>
+			<p class="text-white self-center sm:text-gray-600 mb-10">Não tem uma conta? <a href="disconnected.do?action=register-page" class="text-blue-500">Clique aqui para se registrar.</a></p>
 			
 			<div class="flex items-center self-center w-full gap-5 justify-around">
 		        <input class="text-md bg-blue-600 py-4 px-6 w-1/2 rounded-lg text-white hover:bg-blue-500 cursor-pointer font-bold focus:outline-none transition duration-300" type="submit" value="Enviar">
