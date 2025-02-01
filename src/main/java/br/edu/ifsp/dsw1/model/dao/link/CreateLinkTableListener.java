@@ -10,7 +10,7 @@ public class CreateLinkTableListener implements ServletContextListener  {
 	        + "    link_curto VARCHAR(20) PRIMARY KEY,\r\n"
 	        + "    link_original VARCHAR(300) NOT NULL,\r\n"
 	        + "    user VARCHAR(50),\r\n"
-	        + "    FOREIGN KEY (user) REFERENCES user(email) ON DELETE CASCADE\r\n"
+	        + "    FOREIGN KEY (user) REFERENCES user_tb(email) ON DELETE CASCADE\r\n"
 	        + ")";
 	
 	public void contextInitialized(ServletContextEvent sce){ 
