@@ -19,17 +19,17 @@
 		<form action="disconnected.do?action=question-email" method="POST" class="flex flex-col w-2/3 mx-auto">
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 				<span class="material-icons text-gray-500 ml-2">person</span>
-				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="link" placeholder="Nome" required/>
+				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="name" placeholder="Nome" required/>
 			</div>
 			
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 				<span class="material-icons text-gray-500 ml-2">email</span>
-				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="link" placeholder="E-mail" required/>
+				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="email" name="email" placeholder="E-mail" required/>
 			</div>
 			
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
   				<span class="material-icons text-gray-500 ml-2">message</span>
-			  	<textarea class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500 resize-none h-32" placeholder="Mensagem" required></textarea>
+			  	<textarea class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500 resize-none h-32" name="message" placeholder="Mensagem" required></textarea>
 			</div>
 			
 			<input type="submit" value="Enviar" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300">
