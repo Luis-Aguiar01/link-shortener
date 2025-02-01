@@ -16,15 +16,16 @@
 		<jsp:include page="/includes/header.jsp" />
 	<% } %>
 
-	<div class="self-center w-2/3 mt-8 mb-10">
-		<h1 class="font-bold text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Encurte o seu link em apenas 1 segundo</h1>
+	<div class="self-center w-full max-w-3xl px-4 mt-8 mb-10">
+		<h1 class="text-2xl font-bold sm:text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Encurte o seu link em apenas 1 segundo</h1>
 		
 		<form action="disconnected.do?action=shorten-link" method="POST" class="flex flex-col">
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 				<span class="material-icons text-gray-500 ml-2">link</span>
 				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="link" placeholder="Digite o seu link" required/>
-				<button type="submit" class="bg-blue-600 px-3 py-2 text-sm text-center font-bold text-white rounded-lg hover:bg-blue-500 cursor-pointer transition duration-300">Encurtar</button>
+				<button type="submit" class="hidden sm:block bg-blue-600 px-3 py-2 text-sm text-center font-bold text-white rounded-lg hover:bg-blue-500 cursor-pointer transition duration-300">Encurtar</button>
 			</div>
+			<button type="submit" class="sm:hidden bg-blue-600 px-3 py-2 mb-5 text-sm text-center font-bold text-white rounded-lg hover:bg-blue-500 cursor-pointer transition duration-300">Encurtar</button>
 		</form>
 		
 		<p class="text-center text-lg text-green-500 font-bold mb-10">Seu link: http://localhost:8080/matheus</p>
@@ -34,14 +35,14 @@
 			<p>Cadastre-se e personalize seu link para facilitar o acesso.</p>
 		</div>
 
-		<div class="bg-gray-700 rounded-lg p-6 text-white">
+		<div class="bg-gray-700 rounded-lg p-4 sm:p-6 text-white">
 			<h2 class="font-bold text-2xl mb-4">Estatísticas</h2>
 			<p>Total de links encurtados: <span class="font-bold">200</span></p>
 			<p>Total de cliques: <span class="font-bold">250</span></p>
 		</div>
 
 		<div class="text-center mt-10">
-			<a href="disconnected.do?action=register-page" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300">Cadastre-se para mais funcionalidades</a>
+			<a href="disconnected.do?action=register-page" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300 w-full sm:w-auto block sm:inline-block">Cadastre-se para mais funcionalidades</a>
 		</div>
 	</div>	
 	
