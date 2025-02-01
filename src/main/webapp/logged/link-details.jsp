@@ -10,7 +10,7 @@
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
 
-	<jsp:include page="/includes/header.jsp" />
+	<jsp:include page="./includes/logged-header.jsp" />
 
 	<h1 class="text-2xl font-bold sm:text-4xl text-center text-white mt-10 mb-8 leading-relaxed">
 		Acessos ao seu link "Google"
@@ -47,7 +47,7 @@
 		</div>
 	</div>
 
-	<jsp:include page="/includes/footer.html" />
+	<jsp:include page="../includes/footer.html" />
 
 </body>
 </html>

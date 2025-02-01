@@ -10,7 +10,7 @@
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
 
-	<jsp:include page="/includes/header.jsp" />
+	<jsp:include page="./includes/logged-header.jsp" />
 	
 	<div class="w-full bg-transparent flex flex-col p-10 sm:w-1/2 sm:bg-white rounded-lg shadow-2xl self-center mt-10 mb-20">
         <h1 class="text-2xl text-white text-center self-center font-bold sm:text-3xl mb-10 sm:text-gray-800">Editar Link Personalizado</h1>
@@ -29,7 +29,7 @@
         </form>
     </div>
 	
-	<jsp:include page="/includes/footer.html" />
+	<jsp:include page="../includes/footer.html" />
 	
 </body>
 </html>
