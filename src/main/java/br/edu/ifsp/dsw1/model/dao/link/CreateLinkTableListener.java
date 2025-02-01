@@ -8,14 +8,13 @@ public class CreateLinkTableListener implements ServletContextListener  {
 	
 	private static final String CREATE_LINK_TABLE_SQL = "";
 	
-	public void contextInitialized(ServletContextEvent sce)  { 
-        try (var conn = DatabaseConnection.getConnection();
-       	  var ps = conn.prepareStatement(CREATE_LINK_TABLE_SQL)) {
-       	 ps.executeUpdate();
+	public void contextInitialized(ServletContextEvent sce){ 
+		try (var conn = DatabaseConnection.getConnection();
+       	     var ps = conn.prepareStatement(CREATE_LINK_TABLE_SQL)) {
+			ps.executeUpdate();
         }
         catch (Exception e) {
-       	 e.printStackTrace();
+       	 	e.printStackTrace();
         }
    }
-
 }
