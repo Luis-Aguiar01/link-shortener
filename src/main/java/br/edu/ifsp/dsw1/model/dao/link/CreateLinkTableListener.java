@@ -3,7 +3,9 @@ package br.edu.ifsp.dsw1.model.dao.link;
 import br.edu.ifsp.dsw1.model.dao.connection.DatabaseConnection;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
 
+@WebListener
 public class CreateLinkTableListener implements ServletContextListener  {
 	
 	private static final String CREATE_LINK_TABLE_SQL = "CREATE TABLE IF NOT EXISTS link (\r\n"

@@ -11,6 +11,7 @@ import br.edu.ifsp.dsw1.controller.command.GetRegisterPageCommand;
 import br.edu.ifsp.dsw1.controller.command.HomeCommand;
 import br.edu.ifsp.dsw1.controller.command.RegisterUserCommand;
 import br.edu.ifsp.dsw1.controller.command.SendEmailCommand;
+import br.edu.ifsp.dsw1.controller.command.ShortenLinkCommand;
 import br.edu.ifsp.dsw1.controller.command.LoginCommand;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -42,6 +43,8 @@ public class DisconnectedServlet extends HttpServlet {
 			command = new GetContactPageCommand();
 		} else if ("question-email".equals(action)) {
 			command = new SendEmailCommand();
+		} else if ("shorten-link".equals(action)) {
+			command = new ShortenLinkCommand();
 		} else {
 			command = new ErrorCommand();
 		}

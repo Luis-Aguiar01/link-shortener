@@ -13,6 +13,7 @@ public class LinkDAOImp implements LinkDAO{
 	private static final String INSERT_LINK_SQL = "INSERT INTO link (link_curto, link_original, user) VALUES (?,?,?)";
 	private static final String DELETE_LINK_SQL = "DELETE FROM link WHERE link_curto = ?";
 	private static final String UPDATE_LINK_SQL = "UPDATE link SET link_curto = ? WHERE link_curto = ?";
+	private static final String COUNT_LINK_SQL = "SELECT COUNT(*) FROM link";
 	private static final String FIND_BY_ID_SQL = "SELECT link_curto, link_original FROM link WHERE link_curto = ?";
 	private static final String FIND_BY_USER_SQL = "SELECT link_curto, link_original FROM link WHERE user = ?";
 
@@ -132,5 +133,24 @@ public class LinkDAOImp implements LinkDAO{
 		
 		
 		return rows > 0;
+	}
+	
+	public long count() {
+		long linkQuantity = 0L;
+		
+		try (var connection = DatabaseConnection.getConnection();
+				var preparedStatement = connection.prepareStatement(COUNT_LINK_SQL)){
+			
+			var rs = preparedStatement.executeQuery();
+			
+			if(rs.next()) {
+				linkQuantity = rs.getLong(1);
+			}
+
+		}  catch (SQLException exception) {
+			exception.printStackTrace();
+		}
+		
+		return linkQuantity;
 	}
 }
