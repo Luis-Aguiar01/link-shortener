@@ -16,26 +16,35 @@ public class ShortenLinkCommand implements Command {
 	private static final Random RANDOM = new Random();
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		var dao = new LinkDAOFactory().factory();
+		var session = request.getSession(false);
+		User user = null;
+		if(session != null && session.getAttribute("user") != null) {
+			user = (User) session.getAttribute("user");
+		}
+		
 		String resultLink = null;
 		String link = request.getParameter("link");
 		int length = CheckLinkListener.getUrlSize();
 
+		
 		while (resultLink == null) {
 			String generatedLink = generateRandomString(length);
 			if (dao.findyById(generatedLink) == null) { // Retorna se for único
 				resultLink = generatedLink;
-				dao.create(new Link(resultLink, link), null);
+				if(user != null) {
+					dao.create(new Link(resultLink, link), user.getEmail());
+				} else {
+					dao.create(new Link(resultLink, link), null);
+				}
 			}
 		}
 		request.setAttribute("result_link", resultLink);
 		
-		var session = request.getSession(false);
-		
 		String view;
-		if(session != null) {
+		if(user != null) {
 			view = "/logged/index-logged.jsp";
 		} else {
 			view = "index.jsp";
