@@ -5,7 +5,7 @@
 				<p class="text-sm">&copy; 2025 Encurtador de URL. Todos os direitos reservados.</p>
 			</div>
 			<div class="flex space-x-5 mt-1">
-				<a href="disconnected.do?action=questions-page" class="text-gray-400 hover:text-white transition duration-300">DÃºvidas</a>
+				<a href="disconnected.do?action=questions-page" class="text-gray-400 hover:text-white transition duration-300">Dúvidas</a>
 				<a href="disconnected.do?action=contact-page" class="text-gray-400 hover:text-white transition duration-300">Contato</a>
 			</div>
 		</div>

@@ -40,7 +40,7 @@
 		<servlet-name>LoggedServlet</servlet-name>
 		<url-pattern>/logged.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- RedirectServlet -->
 	<servlet>
 		<servlet-name>RedirectServlet</servlet-name>
@@ -51,4 +51,10 @@
 		<servlet-name>RedirectServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/assets/*</url-pattern>
+	</servlet-mapping>
+
 </web-app>
