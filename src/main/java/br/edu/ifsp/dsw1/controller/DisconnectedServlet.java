@@ -9,17 +9,15 @@ import br.edu.ifsp.dsw1.controller.command.GetLoginPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetQuestionsPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetRegisterPageCommand;
 import br.edu.ifsp.dsw1.controller.command.HomeCommand;
+import br.edu.ifsp.dsw1.controller.command.LoginCommand;
 import br.edu.ifsp.dsw1.controller.command.RegisterUserCommand;
 import br.edu.ifsp.dsw1.controller.command.SendEmailCommand;
 import br.edu.ifsp.dsw1.controller.command.ShortenLinkCommand;
-import br.edu.ifsp.dsw1.controller.command.LoginCommand;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/disconnected.do")
 public class DisconnectedServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

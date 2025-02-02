@@ -10,12 +10,10 @@ import br.edu.ifsp.dsw1.controller.command.GetMyLinksPageCommand;
 import br.edu.ifsp.dsw1.controller.command.LogoutCommand;
 import br.edu.ifsp.dsw1.controller.command.ShortenLinkCommand;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/logged.do")
 public class LoggedServlet extends HttpServlet {
 	private final static long serialVersionUID = 1L;
 	

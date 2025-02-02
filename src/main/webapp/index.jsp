@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Home</title>
-<jsp:include page="includes/links.html" />
+<jsp:include page="includes/links.jsp" />
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
 	

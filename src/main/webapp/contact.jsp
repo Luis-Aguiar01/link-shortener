@@ -10,7 +10,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Contato</title>
-<jsp:include page="includes/links.html" />
+<jsp:include page="includes/links.jsp" />
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900 px-2 sm:px-0">
 	
