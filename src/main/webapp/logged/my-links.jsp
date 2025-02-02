@@ -18,15 +18,12 @@
 	
 	<jsp:include page="./includes/logged-header.jsp" />
 	
-	
-	
 	<h1 class="font-bold text-4xl text-center text-white mt-10 mb-8 leading-relaxed">Meus Links &#128279;</h1>
 	
 	<div class="container mx-auto px-4 max-w-7xl mb-20">
 		<div class="rounded-lg shadow-lg overflow-hidden">
 			
 			
-			<!-- SCROLL HORIZONTAL PARA TELAS PEQUENAS -->
 			<div class="overflow-x-auto">
 				<table class="w-full min-w-[600px] text-sm text-left border-collapse">
 					<thead>
@@ -37,14 +34,18 @@
 						</tr>
 					</thead>
 					<tbody>
-					<% if(lista != null && !lista.isEmpty())
-						for(var link: lista) {%>
+					
+					<%	
+						if(lista != null && !lista.isEmpty()) {
+							for(var link: lista) {
+					%>
 						<tr class="bg-gray-50 hover:bg-gray-100 transition-all">
 						
 							<td class="px-6 py-4 border-b border-gray-200 text-center font-medium"><%= link.getCustomLink()%></td>
 							<td class="px-6 py-4 border-b border-gray-200 text-center font-medium break-words">
-								<a href="<%= link.getLink() %>" target="_blank" class="text-blue-500 hover:text-blue-400 transition duration-300"><%=link.getLink() %>
-								</a>
+							    <a href="<%= link.getLink() %>" target="_blank" class="text-blue-500 hover:text-blue-400 transition duration-300 truncate block max-w-[300px] mx-auto">
+							        <%= link.getLink() %>
+							    </a>
 							</td>
 							<td class="px-6 py-4 border-b border-gray-200 text-center font-medium flex flex-wrap justify-center gap-4">
 								<a href="#logged.do?action=edit&id<%= link.getCustomLink() %>" title="Editar">
@@ -58,11 +59,14 @@
 								</a> 
 							</td>
 						</tr>
-						<%} %>
+					
+					<% 		} %>		
+					<% 	} %>		 	
+				
+					
 					</tbody>
 				</table>
 			</div>
-			
 		</div>
 	</div>
 	

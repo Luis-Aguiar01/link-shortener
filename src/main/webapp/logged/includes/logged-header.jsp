@@ -24,7 +24,7 @@
 		        <span>Meus Links</span>
 		      </a>
 	
-		      <a href="logged.do?action=logout" class="bg-red-700 px-4 py-2 text-md text-center font-bold text-white rounded-lg hover:bg-red-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-300 transition duration-300">
+		      <a href="logged.do?action=logout" class="bg-red-600 px-6 py-4 mr-4 text-md text-center font-bold text-white rounded-lg hover:bg-red-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300">
 		        Logout
 		      </a>
 	    </div>
