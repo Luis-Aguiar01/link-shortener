@@ -3,13 +3,14 @@ package br.edu.ifsp.dsw1.model.entity;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class User {
 
 	private String name;
 	private String password;
 	private String email;
-	//private List<Link> listaLinks;
+	private List<Link> links;
 	
 	public User() {}
 	
@@ -28,6 +29,18 @@ public class User {
         }
 	}
 	
+	public boolean adicionaLink(Link link) {
+		if (!links.contains(link)) {
+			links.add(link);
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public List<Link> getLinks() {
+		return links;
+	}
 	public String getName() {
 		return name;
 	}

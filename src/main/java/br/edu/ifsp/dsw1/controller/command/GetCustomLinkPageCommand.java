@@ -10,6 +10,9 @@ public class GetCustomLinkPageCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
 		return "/logged/custom-links.jsp";
 	}
 }
