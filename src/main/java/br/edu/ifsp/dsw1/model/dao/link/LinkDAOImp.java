@@ -7,143 +7,122 @@ import java.util.List;
 import br.edu.ifsp.dsw1.model.dao.connection.DatabaseConnection;
 import br.edu.ifsp.dsw1.model.entity.Link;
 import br.edu.ifsp.dsw1.model.entity.User;
+import br.edu.ifsp.dsw1.model.enums.LinkType;
 
 public class LinkDAOImp implements LinkDAO{
 	
-	private static final String INSERT_LINK_SQL = "INSERT INTO link (link_curto, link_original, user) VALUES (?,?,?)";
-	private static final String DELETE_LINK_SQL = "DELETE FROM link WHERE link_curto = ?";
-	private static final String UPDATE_LINK_SQL = "UPDATE link SET link_curto = ? WHERE link_curto = ?";
-	private static final String COUNT_LINK_SQL = "SELECT COUNT(*) FROM link";
-	private static final String FIND_BY_ID_SQL = "SELECT link_curto, link_original FROM link WHERE link_curto = ?";
-	private static final String FIND_BY_USER_SQL = "SELECT link_curto, link_original FROM link WHERE user = ?";
+	private static final String INSERT_LINK_SQL = "INSERT INTO link_tb (short_link, full_link, user_email, type) VALUES (?,?,?, ?)";
+	private static final String DELETE_LINK_SQL = "DELETE FROM link_tb WHERE short_link = ?";
+	private static final String UPDATE_LINK_SQL = "UPDATE link_tb SET short_link = ?, full_link = ? WHERE short_link = ?";
+	private static final String COUNT_LINK_SQL = "SELECT COUNT(*) FROM link_tb";
+	private static final String FIND_BY_ID_SQL = "SELECT short_link, full_link, type FROM link_tb WHERE short_link = ?";
+	private static final String FIND_BY_USER_SQL = "SELECT short_link, full_link, type FROM link_tb WHERE user_email = ?";
 
 	@Override
 	public boolean create(Link link, String email) {
-		int rows = 0;
-		
 		try (var connection = DatabaseConnection.getConnection();
-					var preparedStatement = connection.prepareStatement(INSERT_LINK_SQL)){
+			 var preparedStatement = connection.prepareStatement(INSERT_LINK_SQL)){
 			
-			preparedStatement.setString(1, link.getCustomLink());
-			preparedStatement.setString(2, link.getLink());
+			preparedStatement.setString(1, link.getShortLink());
+			preparedStatement.setString(2, link.getFullLink());
 			preparedStatement.setString(3, email);
+			preparedStatement.setString(4, link.getType().toString());
 			
-			rows = preparedStatement.executeUpdate();
-			
-			
-		} catch (SQLException exception) {
-			exception.printStackTrace();
-		}
+			return preparedStatement.executeUpdate() > 0;
 		
-		return rows > 0;
-
+		} catch (SQLException exception) {
+			return false;
+		}
 	}
 	
 	@Override
 	public boolean delete(Link link) {
+		try (var connection = DatabaseConnection.getConnection();
+			 var preparedStatement = connection.prepareStatement(DELETE_LINK_SQL)) {
+			
+			preparedStatement.setString(1, link.getShortLink());
+			return preparedStatement.executeUpdate() > 0;
 		
-		int rows = 0;
-		
-		try(var connection = DatabaseConnection.getConnection();
-					var preparedStatement = connection.prepareStatement(DELETE_LINK_SQL) ){
-			
-			preparedStatement.setString(1, link.getCustomLink());
-			
-			rows = preparedStatement.executeUpdate();
-			
-			
 		} catch (SQLException exception) {
-			exception.printStackTrace();
+			return false;
 		}
-		return rows > 0;
 	}
 	
 	@Override
-	public Link findyById(String linkCustom) {
+	public Link findyById(String shortLink) {
 		Link link = null;
 		
 		try (var connection = DatabaseConnection.getConnection();
-					var preparedStatement = connection.prepareStatement(FIND_BY_ID_SQL) ){
+			 var preparedStatement = connection.prepareStatement(FIND_BY_ID_SQL)) {
 			
-			preparedStatement.setString(1, linkCustom);
-			
+			preparedStatement.setString(1, shortLink);
 			var result = preparedStatement.executeQuery();
 			
 			if (result.next()) {
 				link = new Link();
-				link.setCustomLink(result.getString("link_curto"));
-				link.setLink(result.getString("link_original"));
+				link.setShortLink(result.getString("short_link"));
+				link.setFullLink(result.getString("full_link"));
+				link.setType(LinkType.valueOf(result.getString("type")));
 			}
 			
-			return link;
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
 		
-		return null;
+		return link;
 	}
 	
 	
 	@Override
 	public List<Link> findyByUser(User user) {
-		List<Link> listLinks = new ArrayList<>();
+		List<Link> links = new ArrayList<>();
 
-		
 		try (var connection = DatabaseConnection.getConnection();
-				var preparedStatement = connection.prepareStatement(FIND_BY_USER_SQL)){
-					
-				preparedStatement.setString(1, user.getEmail());	
-			
-				var result = preparedStatement.executeQuery();
+			 var preparedStatement = connection.prepareStatement(FIND_BY_USER_SQL)) {
 				
+			preparedStatement.setString(1, user.getEmail());	
+			var result = preparedStatement.executeQuery();
+	
+			while (result.next()) {
+				var link = new Link();
+				link.setShortLink(result.getString("short_link"));
+				link.setFullLink(result.getString("full_link"));
+				link.setType(LinkType.valueOf(result.getString("type")));
+				links.add(link);
+			}
 				
-				Link link;
-				while (result.next()) {
-					
-					 link = new Link();
-					 link.setCustomLink(result.getString("link_curto"));
-					 link.setLink(result.getString("link_original"));
-					 listLinks.add(link);
-				}
-				
-						
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
 		
-		
-		return listLinks;
+		return links;
 	}
 
 	@Override
-	public boolean update(String link_curto, Link link) {
-		int rows = 0;
-		
+	public boolean update(String shortLink, Link link) {
 		try (var connection = DatabaseConnection.getConnection();
-				var preparedStatement = connection.prepareStatement(UPDATE_LINK_SQL)){
+			 var preparedStatement = connection.prepareStatement(UPDATE_LINK_SQL)){
 			
-			preparedStatement.setString(1, link_curto); //Link novo a ser inserido
-			preparedStatement.setString(2, link.getCustomLink()); //Link antigo
+			preparedStatement.setString(1, link.getShortLink()); //Link novo a ser inserido
+			preparedStatement.setString(2, link.getFullLink()); 
+			preparedStatement.setString(3, shortLink); //Link antigo
 			
-			rows = preparedStatement.executeUpdate();
+			return preparedStatement.executeUpdate() > 0;
 
 		}  catch (SQLException exception) {
-			exception.printStackTrace();
+			return false;
 		}
-		
-		
-		return rows > 0;
 	}
 	
 	public long count() {
 		long linkQuantity = 0L;
 		
 		try (var connection = DatabaseConnection.getConnection();
-				var preparedStatement = connection.prepareStatement(COUNT_LINK_SQL)){
+			 var preparedStatement = connection.prepareStatement(COUNT_LINK_SQL)) {
 			
 			var rs = preparedStatement.executeQuery();
 			
-			if(rs.next()) {
+			if (rs.next()) {
 				linkQuantity = rs.getLong(1);
 			}
 

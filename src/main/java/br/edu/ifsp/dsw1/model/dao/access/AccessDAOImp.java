@@ -11,54 +11,55 @@ import br.edu.ifsp.dsw1.model.entity.Link;
 
 public class AccessDAOImp implements AccessDAO{
 	
-	private static final String INSERT_ACCESS_SQL = "INSET INTO access_tb (ip, link_curto) VALUES (?, ?)"; 
-	private static final String SELECT_BY_LINK_ACCESS_SQL = "SELECT ip, link_curto FROM access_tb WHERE link_curto = ?";
-
+	private static final String INSERT_ACCESS_SQL = "INSERT INTO access_tb (ip, short_link) VALUES (?, ?)"; 
+	private static final String SELECT_BY_LINK_ACCESS_SQL = "SELECT id, ip, short_link FROM access_tb WHERE short_link = ?";
+	
+	private LinkDAO linkDao;
+	
+	public AccessDAOImp(LinkDAO linkDao) {
+		this.linkDao = linkDao;
+	}
+	
 	@Override
 	public boolean create(Link link, String ip) {
-		
-		int rows = 0;
-		try(var connection = DatabaseConnection.getConnection();
-					var ps = connection.prepareStatement(INSERT_ACCESS_SQL)) {
+		try (var connection = DatabaseConnection.getConnection();
+			 var ps = connection.prepareStatement(INSERT_ACCESS_SQL)) {
 			
 			ps.setString(1, ip);
-			ps.setString(2, link.getCustomLink());
-			
-			rows = ps.executeUpdate();
-
+			ps.setString(2, link.getShortLink());
+			return ps.executeUpdate() > 0;
+		
 		} catch (SQLException e) {
-			e.printStackTrace();
+			return false;
 		}
-				
-		return rows > 0;
 	}
 	 
-		
 	@Override
-	public List<Access> findByLink(Link link, LinkDAO databaseLink) {
-		List<Access> listAccess = new ArrayList<>();	
+	public List<Access> findByLink(Link link) {
+		List<Access> accesses = new ArrayList<>();	
 		
 		try (var connection = DatabaseConnection.getConnection();
-				var ps = connection.prepareStatement(SELECT_BY_LINK_ACCESS_SQL)){
-					
-					ps.setString(1, link.getCustomLink());
-					
-					var result = ps.executeQuery();
-					
-					while(result.next()) {
-						Access acesso = new Access();
-						String link_curto = result.getString("link");
-						Link linkResult = databaseLink.findyById(link_curto);
-						
-						acesso.setIp(result.getString("ip"));
-						acesso.setLink(linkResult);
-						listAccess.add(acesso);
-					}
+			 var ps = connection.prepareStatement(SELECT_BY_LINK_ACCESS_SQL)) {
+			
+			ps.setString(1, link.getShortLink());
+			var result = ps.executeQuery();
+			
+			while (result.next()) {
+				var access = new Access();
+				var shortLink = result.getString("short_link");
+				var foundLink = linkDao.findyById(shortLink);
+				
+				access.setId(result.getInt("id"));
+				access.setIp(result.getString("ip"));
+				access.setLink(foundLink);
+				
+				accesses.add(access);
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return listAccess;
+		return accesses;
 	}
 }

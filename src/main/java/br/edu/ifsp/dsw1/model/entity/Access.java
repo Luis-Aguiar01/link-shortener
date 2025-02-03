@@ -3,7 +3,6 @@ package br.edu.ifsp.dsw1.model.entity;
 import java.util.Objects;
 
 public class Access {
-	
 	private int id;
 	private String ip;
 	private Link link;

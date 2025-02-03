@@ -12,6 +12,22 @@ public class UserDAOImp implements UserDAO{
 	private static final String FIND_BY_EMAIL_SQL = "SELECT email, name, password FROM user_tb WHERE email = ?";
 	
 	@Override
+	public boolean create(User user) {
+		try (var connection = DatabaseConnection.getConnection(); 
+			 var preparedStatement = connection.prepareStatement(INSERT_USER_SQL)){
+			
+			preparedStatement.setString(1, user.getEmail());
+			preparedStatement.setString(2, user.getName());
+			preparedStatement.setString(3, user.getPassword());
+			
+			return preparedStatement.executeUpdate() > 0;
+
+		} catch (SQLException e) {
+			return false;
+		}
+	}
+	
+	@Override
 	public User findByEmail(String email) {
 		User user = null;
 		
@@ -34,25 +50,5 @@ public class UserDAOImp implements UserDAO{
 		}
 	
 		return user;
-	}
-
-	@Override
-	public boolean create(User user) {
-		int row = 0;
-		
-		try (var connection = DatabaseConnection.getConnection(); 
-			 var preparedStatement = connection.prepareStatement(INSERT_USER_SQL)){
-			
-			preparedStatement.setString(1, user.getEmail());
-			preparedStatement.setString(2, user.getName());
-			preparedStatement.setString(3, user.getPassword());
-			
-			row = preparedStatement.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return row > 0;
 	}
 }

@@ -7,6 +7,7 @@ import br.edu.ifsp.dsw1.model.dao.link.CheckLinkListener;
 import br.edu.ifsp.dsw1.model.dao.link.LinkDAOFactory;
 import br.edu.ifsp.dsw1.model.entity.Link;
 import br.edu.ifsp.dsw1.model.entity.User;
+import br.edu.ifsp.dsw1.model.enums.LinkType;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -29,15 +30,14 @@ public class ShortenLinkCommand implements Command {
 		String link = request.getParameter("link");
 		int length = CheckLinkListener.getUrlSize();
 
-		
 		while (resultLink == null) {
 			String generatedLink = generateRandomString(length);
 			if (dao.findyById(generatedLink) == null) { // Retorna se for único
 				resultLink = generatedLink;
 				if(user != null) {
-					dao.create(new Link(resultLink, link), user.getEmail());
+					dao.create(new Link(resultLink, link, LinkType.RANDOM), user.getEmail());
 				} else {
-					dao.create(new Link(resultLink, link), null);
+					dao.create(new Link(resultLink, link, LinkType.RANDOM), null);
 				}
 			}
 		}

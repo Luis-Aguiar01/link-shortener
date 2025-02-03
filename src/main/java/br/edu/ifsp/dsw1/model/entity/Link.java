@@ -2,41 +2,54 @@ package br.edu.ifsp.dsw1.model.entity;
 
 import java.util.Objects;
 
+import br.edu.ifsp.dsw1.model.enums.LinkType;
+
 public class Link {
-	private String customLink;
-	private String link;
+	private String shortLink;
+	private String fullLink;
+	private LinkType type;
 	
 	public Link() {}
+	
+	public Link(String shortLink, String fullLink, LinkType type) {
+		super();
+		this.shortLink = shortLink;
+		this.fullLink = fullLink;
+		this.type = type;
+	}
 
-	public Link(String customLink, String link) {
-		this.customLink = customLink;
-		this.link = link;
+	public String getShortLink() {
+		return shortLink;
+	}
+
+	public void setShortLink(String shortLink) {
+		this.shortLink = shortLink;
+	}
+
+	public String getFullLink() {
+		return fullLink;
+	}
+
+	public void setFullLink(String fullLink) {
+		this.fullLink = fullLink;
 	}
 	
-	public String getCustomLink() {
-		return customLink;
+	public LinkType getType() {
+		return type;
 	}
-	
-	public void setCustomLink(String customLink) {
-		this.customLink = customLink;
-	}
-	
-	public String getLink() {
-		return link;
-	}
-	
-	public void setLink(String link) {
-		this.link = link;
+
+	public void setType(LinkType type) {
+		this.type = type;
 	}
 
 	@Override
 	public String toString() {
-		return "Link [customLink=" + customLink + ", link=" + link + "]";
+		return "Link [shortLink=" + shortLink + ", fullLink=" + fullLink + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(customLink, link);
+		return Objects.hash(shortLink);
 	}
 
 	@Override
@@ -48,6 +61,6 @@ public class Link {
 		if (getClass() != obj.getClass())
 			return false;
 		Link other = (Link) obj;
-		return Objects.equals(customLink, other.customLink) && Objects.equals(link, other.link);
+		return Objects.equals(shortLink, other.shortLink);
 	}
 }

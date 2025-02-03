@@ -7,11 +7,16 @@ import br.edu.ifsp.dsw1.model.entity.User;
 
 public interface LinkDAO {
 	
-	public boolean create(Link link, String email);
-	public boolean delete(Link link);
-	public boolean update(String link_curto, Link link);
-	public long count();
-	public Link findyById(String linkCustom);
-	public List<Link> findyByUser(User user);
+	boolean create(Link link, String email);
+	
+	boolean delete(Link link);
+	
+	boolean update(String shortLink, Link link);
+	
+	long count();
+	
+	Link findyById(String shortLink);
+	
+	List<Link> findyByUser(User user);
 	
 }

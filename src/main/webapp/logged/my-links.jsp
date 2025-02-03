@@ -41,20 +41,20 @@
 					%>
 						<tr class="bg-gray-50 hover:bg-gray-100 transition-all">
 						
-							<td class="px-6 py-4 border-b border-gray-200 text-center font-medium"><%= link.getCustomLink()%></td>
+							<td class="px-6 py-4 border-b border-gray-200 text-center font-medium"><%= link.getShortLink() %></td>
 							<td class="px-6 py-4 border-b border-gray-200 text-center font-medium break-words">
-							    <a href="<%= link.getLink() %>" target="_blank" class="text-blue-500 hover:text-blue-400 transition duration-300 truncate block max-w-[300px] mx-auto">
-							        <%= link.getLink() %>
+							    <a href="<%= link.getFullLink() %>" target="_blank" class="text-blue-500 hover:text-blue-400 transition duration-300 truncate block max-w-[300px] mx-auto">
+							        <%= link.getFullLink() %>
 							    </a>
 							</td>
 							<td class="px-6 py-4 border-b border-gray-200 text-center font-medium flex flex-wrap justify-center gap-4">
-								<a href="#logged.do?action=edit&id<%= link.getCustomLink() %>" title="Editar">
+								<a href="#logged.do?action=edit&id<%= link.getShortLink() %>" title="Editar">
 									<span class="material-icons text-blue-500 hover:text-blue-400 transition duration-300">edit</span>
 								</a> 
-								<a href="#logged.do?action=delete&id<%= link.getCustomLink() %>" title="Excluir">
+								<a href="#logged.do?action=delete&id<%= link.getShortLink() %>" title="Excluir">
 									<span class="material-icons text-red-500 hover:text-red-400 transition duration-300">delete</span>
 								</a> 
-								<a href="#logged.do?action=info&id<%= link.getCustomLink() %>" title="Detalhes">
+								<a href="#logged.do?action=info&id<%= link.getShortLink() %>" title="Detalhes">
 									<span class="material-icons text-gray-500 hover:text-gray-400 transition duration-300">info</span>
 								</a> 
 							</td>

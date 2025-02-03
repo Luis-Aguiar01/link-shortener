@@ -1,5 +1,7 @@
 package br.edu.ifsp.dsw1.model.dao.access;
 
+import br.edu.ifsp.dsw1.model.dao.link.LinkDAOFactory;
+
 public class AccessDAOFactory {
 	
 private AccessDAOType accessType;
@@ -14,17 +16,15 @@ private AccessDAOType accessType;
 	
 	public AccessDAO factory() {
 		switch (accessType) {
-		case DATABASE: {
-			
-			return new AccessDAOImp();
-		}
-		default:
-			throw new IllegalArgumentException("Tipo inválido.");
-		}
+			case DATABASE: {
+				return new AccessDAOImp(new LinkDAOFactory().factory());
+			}
+			default:
+				throw new IllegalArgumentException("Tipo inválido.");
+			}
 	}
 	
 	public enum AccessDAOType{
 		DATABASE
 	}
-
 }

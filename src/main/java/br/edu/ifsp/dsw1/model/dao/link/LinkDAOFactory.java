@@ -13,13 +13,12 @@ public class LinkDAOFactory {
 	
 	public LinkDAO factory() {
 		switch (linkType) {
-		case DATABASE: {
-			
-			return new LinkDAOImp();
-		}
-		default:
-			throw new IllegalArgumentException("Tipo inválido.");
-		}
+			case DATABASE: {
+				return new LinkDAOImp();
+			}
+			default:
+				throw new IllegalArgumentException("Tipo inválido.");
+			}
 	}
 	
 	public enum LinkDAOType{

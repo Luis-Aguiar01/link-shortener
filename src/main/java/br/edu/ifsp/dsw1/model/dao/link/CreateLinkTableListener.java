@@ -8,11 +8,12 @@ import jakarta.servlet.annotation.WebListener;
 @WebListener
 public class CreateLinkTableListener implements ServletContextListener  {
 	
-	private static final String CREATE_LINK_TABLE_SQL = "CREATE TABLE IF NOT EXISTS link (\r\n"
-	        + "    link_curto VARCHAR(20) PRIMARY KEY,\r\n"
-	        + "    link_original VARCHAR(300) NOT NULL,\r\n"
-	        + "    user VARCHAR(50),\r\n"
-	        + "    FOREIGN KEY (user) REFERENCES user_tb(email) ON DELETE CASCADE\r\n"
+	private static final String CREATE_LINK_TABLE_SQL = "CREATE TABLE IF NOT EXISTS link_tb (\r\n"
+	        + "    short_link VARCHAR(20) PRIMARY KEY,\r\n"
+	        + "    full_link VARCHAR(300) NOT NULL,\r\n"
+	        + "    user_email VARCHAR(50),\r\n"
+	        + "    type ENUM('RANDOM', 'CUSTOM') NOT NULL,\r\n"
+	        + "    FOREIGN KEY (user_email) REFERENCES user_tb(email) ON DELETE CASCADE\r\n"
 	        + ")";
 	
 	public void contextInitialized(ServletContextEvent sce){ 

@@ -20,7 +20,7 @@ public class RedirectServlet extends HttpServlet {
 		
 	    String link;
 		if (dao.findyById(shortCode) != null) {
-			link = (dao.findyById(shortCode)).getLink();
+			link = (dao.findyById(shortCode)).getFullLink();
 		} else {
 			link = new ErrorCommand().execute(request, response);
 		}

@@ -14,13 +14,12 @@ public class UserDAOFactory {
 	
 	public UserDAO factory() {
 		switch (userType) {
-		case DATABASE: {
-			
-			return new UserDAOImp();
-		}
-		default:
-			throw new IllegalArgumentException("Tipo inválido.");
-		}
+			case DATABASE: {
+				return new UserDAOImp();
+			}
+			default:
+				throw new IllegalArgumentException("Tipo inválido.");
+			}
 	}
 	
 	public enum UserDAOType{
