@@ -5,10 +5,12 @@ import java.io.IOException;
 import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
 import br.edu.ifsp.dsw1.model.dao.link.LinkDAOFactory;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+@WebServlet("/")
 public class RedirectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
