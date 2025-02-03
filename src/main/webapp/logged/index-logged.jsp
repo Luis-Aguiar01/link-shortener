@@ -19,7 +19,7 @@
 	<div class="self-center w-full max-w-3xl px-4 mt-8 mb-10">
 		<h1 class="text-2xl font-bold sm:text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Encurte o seu link em apenas 1 segundo</h1>
 		
-		<form action="disconnected.do?action=shorten-link" method="POST" class="flex flex-col">
+		<form action="logged.do?action=shorten-link" method="POST" class="flex flex-col">
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 				<span class="material-icons text-gray-500 ml-2">link</span>
 				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="link" placeholder="Digite o seu link" required/>
