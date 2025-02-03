@@ -4,8 +4,8 @@
     pageEncoding="UTF-8"%>
 
 <%
-	var lista = (List<Link>)session.getAttribute("listLinks");
-	%>
+	var links = (List<Link>) session.getAttribute("links");
+%>
 	
 <!DOCTYPE html>
 <html>
@@ -21,9 +21,10 @@
 	<h1 class="font-bold text-4xl text-center text-white mt-10 mb-8 leading-relaxed">Meus Links &#128279;</h1>
 	
 	<div class="container mx-auto px-4 max-w-7xl mb-20">
+	
+		<% if (links != null && !links.isEmpty()) { %>
+		
 		<div class="rounded-lg shadow-lg overflow-hidden">
-			
-			
 			<div class="overflow-x-auto">
 				<table class="w-full min-w-[600px] text-sm text-left border-collapse">
 					<thead>
@@ -35,10 +36,8 @@
 					</thead>
 					<tbody>
 					
-					<%	
-						if(lista != null && !lista.isEmpty()) {
-							for(var link: lista) {
-					%>
+					<% for (var link: links) { %>
+					
 						<tr class="bg-gray-50 hover:bg-gray-100 transition-all">
 						
 							<td class="px-6 py-4 border-b border-gray-200 text-center font-medium"><%= link.getShortLink() %></td>
@@ -60,12 +59,14 @@
 							</td>
 						</tr>
 					
-					<% 		} %>		
-					<% 	} %>		 	
-				
-					
+					<% 	} %>
+							
 					</tbody>
 				</table>
+				
+				<% } else { %>
+					<p class="text-md text-center sm:text-xl text-white font-bold mt-10">Nenhum link cadastrado.</p>
+				<% } %>
 			</div>
 		</div>
 	</div>
