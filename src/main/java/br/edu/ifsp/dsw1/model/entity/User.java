@@ -4,6 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Objects;
 
 public class User {
 
@@ -14,10 +15,6 @@ public class User {
 	
 	public User() {}
 	
-    public User(String name, String email, String password) {
-        this(name, email, password, false);
-    }
-
 	public User(String name, String email, String password, boolean fromDB) {
 		this.name = name;
 		this.email = email;
@@ -29,18 +26,6 @@ public class User {
         }
 	}
 	
-	public boolean adicionaLink(Link link) {
-		if (!links.contains(link)) {
-			links.add(link);
-			return true;
-		}
-		
-		return false;
-	}
-	
-	public List<Link> getLinks() {
-		return links;
-	}
 	public String getName() {
 		return name;
 	}
@@ -63,9 +48,16 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-		
 	}
 	
+	public List<Link> getLinks() {
+		return links;
+	}
+	
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
+
 	public static boolean authenticate(User user, String email, String password) {
 		if (user != null) {
 			return hashSHA256(password).equals(user.getPassword()) && email.equals(user.getEmail());
@@ -89,5 +81,27 @@ public class User {
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("Erro ao criptografar");
         }
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", password=" + password + ", email=" + email + ", links=" + links + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(email);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(email, other.email);
 	}
 }
