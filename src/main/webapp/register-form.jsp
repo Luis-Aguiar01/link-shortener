@@ -17,6 +17,7 @@
 	<% } else { %>
 		<jsp:include page="/includes/header.jsp" />
 	<% } %>
+	
 	<div class="flex-1 flex items-center justify-center">
 		<div class="w-full bg-transparent flex flex-col p-10 sm:w-1/2 sm:bg-white rounded-lg shadow-2xl self-center mt-5 mb-10">
 			<h1 class="text-white self-center font-bold text-4xl mb-10 sm:text-gray-800">Cadastro</h1>

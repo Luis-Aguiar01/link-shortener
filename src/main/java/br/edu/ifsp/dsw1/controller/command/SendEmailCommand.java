@@ -18,8 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class SendEmailCommand implements Command {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String subject = request.getParameter("subject");

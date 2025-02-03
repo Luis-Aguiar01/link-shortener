@@ -43,7 +43,7 @@
 			
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 				<span class="material-icons text-gray-500 ml-2">subject</span>
-				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="subject" placeholder="Subject" required/>
+				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="subject" placeholder="Assunto" required/>
 			</div>
 			
 			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">

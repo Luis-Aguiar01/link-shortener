@@ -17,17 +17,11 @@ public class RegisterUserCommand implements Command{
 		var passwd = request.getParameter("password");
 		
 		var dao = new UserDAOFactory().factory();
-		var foundUser = dao.findByEmail(email);
-		var saved = false;
-		
-		if (foundUser == null) {
-			var user = new User(name, email, passwd, false);
-			saved = dao.create(user);
-		}
+		var user = new User(name, email, passwd, false);
+		var saved = dao.create(user);
 		
 		request.setAttribute("saved", saved);
 		
 		return "register-form.jsp";
 	}
-
 }
