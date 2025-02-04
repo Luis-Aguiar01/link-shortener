@@ -12,7 +12,7 @@ import br.edu.ifsp.dsw1.model.entity.Link;
 public class AccessDAOImp implements AccessDAO{
 	
 	private static final String INSERT_ACCESS_SQL = "INSERT INTO access_tb (ip, short_link) VALUES (?, ?)"; 
-	private static final String SELECT_BY_LINK_ACCESS_SQL = "SELECT id, ip, short_link FROM access_tb WHERE short_link = ?";
+	private static final String SELECT_BY_LINK_ACCESS_SQL = "SELECT id, ip FROM access_tb WHERE short_link = ?";
 	
 	@Override
 	public boolean create(Link link, String ip) {
