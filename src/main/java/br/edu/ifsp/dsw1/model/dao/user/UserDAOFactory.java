@@ -1,5 +1,7 @@
 package br.edu.ifsp.dsw1.model.dao.user;
 
+import br.edu.ifsp.dsw1.model.dao.link.LinkDAOFactory;
+
 public class UserDAOFactory {
 	
 	private UserDAOType userType;
@@ -15,7 +17,7 @@ public class UserDAOFactory {
 	public UserDAO factory() {
 		switch (userType) {
 			case DATABASE: {
-				return new UserDAOImp();
+				return new UserDAOImp(new LinkDAOFactory().factory());
 			}
 			default:
 				throw new IllegalArgumentException("Tipo inválido.");

@@ -4,7 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ifsp.dsw1.model.dao.access.AccessDAO;
+import br.edu.ifsp.dsw1.model.dao.access.AccessDAOImp;
 import br.edu.ifsp.dsw1.model.dao.connection.DatabaseConnection;
+import br.edu.ifsp.dsw1.model.entity.Access;
 import br.edu.ifsp.dsw1.model.entity.Link;
 import br.edu.ifsp.dsw1.model.entity.User;
 import br.edu.ifsp.dsw1.model.enums.LinkType;
@@ -17,6 +20,11 @@ public class LinkDAOImp implements LinkDAO{
 	private static final String COUNT_LINK_SQL = "SELECT COUNT(*) FROM link_tb";
 	private static final String FIND_BY_ID_SQL = "SELECT short_link, full_link, type FROM link_tb WHERE short_link = ?";
 	private static final String FIND_BY_USER_SQL = "SELECT short_link, full_link, type FROM link_tb WHERE user_email = ?";
+	private AccessDAO databaseAccess;
+	
+	public LinkDAOImp(AccessDAO daoAccess) {
+		databaseAccess = daoAccess;
+	}
 
 	@Override
 	public boolean create(Link link, String email) {
@@ -63,6 +71,8 @@ public class LinkDAOImp implements LinkDAO{
 				link.setShortLink(result.getString("short_link"));
 				link.setFullLink(result.getString("full_link"));
 				link.setType(LinkType.valueOf(result.getString("type")));
+				List<Access> listaAcesso = databaseAccess.findByLink(link);
+				link.setListAccess(listaAcesso);
 			}
 			
 		} catch (SQLException exception) {
@@ -88,8 +98,13 @@ public class LinkDAOImp implements LinkDAO{
 				link.setShortLink(result.getString("short_link"));
 				link.setFullLink(result.getString("full_link"));
 				link.setType(LinkType.valueOf(result.getString("type")));
+				List<Access> listaAcesso = databaseAccess.findByLink(link);
+				link.setListAccess(listaAcesso);
 				links.add(link);
+				
 			}
+			
+			
 				
 		} catch (SQLException exception) {
 			exception.printStackTrace();

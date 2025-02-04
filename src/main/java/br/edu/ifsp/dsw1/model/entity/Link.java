@@ -1,5 +1,6 @@
 package br.edu.ifsp.dsw1.model.entity;
 
+import java.util.List;
 import java.util.Objects;
 
 import br.edu.ifsp.dsw1.model.enums.LinkType;
@@ -8,6 +9,7 @@ public class Link {
 	private String shortLink;
 	private String fullLink;
 	private LinkType type;
+	private List<Access> listAccess;
 	
 	public Link() {}
 	
@@ -16,6 +18,15 @@ public class Link {
 		this.shortLink = shortLink;
 		this.fullLink = fullLink;
 		this.type = type;
+		
+	}
+	
+	public void setListAccess(List<Access> listAccess) {
+		this.listAccess = listAccess;
+	}
+	
+	public List<Access> getListAccess() {
+		return listAccess;
 	}
 
 	public String getShortLink() {
@@ -51,6 +62,8 @@ public class Link {
 	public int hashCode() {
 		return Objects.hash(shortLink);
 	}
+	
+	
 
 	@Override
 	public boolean equals(Object obj) {

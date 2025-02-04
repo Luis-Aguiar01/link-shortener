@@ -17,7 +17,7 @@ private AccessDAOType accessType;
 	public AccessDAO factory() {
 		switch (accessType) {
 			case DATABASE: {
-				return new AccessDAOImp(new LinkDAOFactory().factory());
+				return new AccessDAOImp();
 			}
 			default:
 				throw new IllegalArgumentException("Tipo inválido.");

@@ -5,13 +5,12 @@ import java.util.Objects;
 public class Access {
 	private int id;
 	private String ip;
-	private Link link;
 	
 	public Access() {}
 
-	public Access(String ip, Link link) {
+	public Access(String ip, int id) {
 		this.ip = ip;
-		this.link = link;
+		this.id = id;
 	}
 	
 	public int getId() {
@@ -30,17 +29,9 @@ public class Access {
 		this.ip = ip;
 	}
 
-	public Link getLink() {
-		return link;
-	}
-
-	public void setLink(Link link) {
-		this.link = link;
-	}
-
 	@Override
 	public String toString() {
-		return "Access [id=" + id + ", ip=" + ip + ", link=" + link + "]";
+		return "Access [id=" + id + ", ip=" + ip  + "]";
 	}
 
 	@Override

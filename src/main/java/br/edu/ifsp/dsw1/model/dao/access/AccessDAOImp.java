@@ -14,12 +14,6 @@ public class AccessDAOImp implements AccessDAO{
 	private static final String INSERT_ACCESS_SQL = "INSERT INTO access_tb (ip, short_link) VALUES (?, ?)"; 
 	private static final String SELECT_BY_LINK_ACCESS_SQL = "SELECT id, ip, short_link FROM access_tb WHERE short_link = ?";
 	
-	private LinkDAO linkDao;
-	
-	public AccessDAOImp(LinkDAO linkDao) {
-		this.linkDao = linkDao;
-	}
-	
 	@Override
 	public boolean create(Link link, String ip) {
 		try (var connection = DatabaseConnection.getConnection();
@@ -33,6 +27,8 @@ public class AccessDAOImp implements AccessDAO{
 			return false;
 		}
 	}
+	
+	
 	 
 	@Override
 	public List<Access> findByLink(Link link) {
@@ -46,12 +42,9 @@ public class AccessDAOImp implements AccessDAO{
 			
 			while (result.next()) {
 				var access = new Access();
-				var shortLink = result.getString("short_link");
-				var foundLink = linkDao.findyById(shortLink);
-				
+						
 				access.setId(result.getInt("id"));
 				access.setIp(result.getString("ip"));
-				access.setLink(foundLink);
 				
 				accesses.add(access);
 			}
