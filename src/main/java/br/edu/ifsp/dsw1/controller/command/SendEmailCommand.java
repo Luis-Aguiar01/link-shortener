@@ -24,8 +24,8 @@ public class SendEmailCommand implements Command {
 		String subject = request.getParameter("subject");
 		String message = request.getParameter("message");
 		
-		String username = System.getenv("e_linkshortener");
-		String password = System.getenv("p_linkshortener");
+		String username = "linkshortener.dsw@gmail.com";
+		String password = "jtac gnjo ryrp dzym";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
@@ -39,7 +39,6 @@ public class SendEmailCommand implements Command {
 		    }
 		});
 
-		String view;
 		try {
 			MimeMessage m = new MimeMessage(session);
 			m.setFrom(new InternetAddress(username));
@@ -50,11 +49,16 @@ public class SendEmailCommand implements Command {
 			m.setText(content, "utf-8");
 
 			Transport.send(m);
-			view = "contact.jsp?success=true";
+			response.setContentType("application/json");
+	        response.setCharacterEncoding("UTF-8");
+	        response.getWriter().write("{\"success\": true}");
+		
 		} catch (MessagingException e) {
-			view = "contact.jsp?success=false";
+			response.setContentType("application/json");
+	        response.setCharacterEncoding("UTF-8");
+	        response.getWriter().write("{\"success\": false}");
 		}
 		
-		return view;
+		return null;
 	}
 }

@@ -50,8 +50,10 @@ public class DisconnectedServlet extends HttpServlet {
 		}
 	
 		var view = command.execute(request, response);
-		var dispatcher = request.getRequestDispatcher(view);
-		dispatcher.forward(request, response);
+		if (view != null) {
+	        var dispatcher = request.getRequestDispatcher(view);
+	        dispatcher.forward(request, response);
+	    }
 	}
 	
 	@Override
