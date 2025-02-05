@@ -9,14 +9,14 @@ public interface LinkDAO {
 	
 	boolean create(Link link, String email);
 	
-	boolean delete(Link link);
+	boolean delete(String link);
 	
 	boolean update(String shortLink, Link link);
 	
 	long count();
 	
-	Link findyById(String shortLink);
+	Link findById(String shortLink);
 	
-	List<Link> findyByUser(User user);
+	List<Link> findByUser(User user);
 	
 }

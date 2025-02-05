@@ -3,6 +3,7 @@ package br.edu.ifsp.dsw1.controller;
 import java.io.IOException;
 
 import br.edu.ifsp.dsw1.controller.command.Command;
+import br.edu.ifsp.dsw1.controller.command.DeleteLinkCommand;
 import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
 import br.edu.ifsp.dsw1.controller.command.GetCustomLinkPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetLoggedPageCommand;
@@ -32,9 +33,10 @@ public class LoggedServlet extends HttpServlet {
 		} else if ("custom-link-page".equals(action)) {
 			command = new GetCustomLinkPageCommand();
 		} else if ("shorten-link".equals(action)) {
-			command = new ShortenLinkCommand(); // Implementar a lógica
-		}
-		else {
+			command = new ShortenLinkCommand();
+		} else if ("delete-link".equals(action)) {
+			command = new DeleteLinkCommand();
+		} else {
 			command = new ErrorCommand();
 		}
 		

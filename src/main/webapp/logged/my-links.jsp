@@ -49,13 +49,13 @@
 							    </a>
 							</td>
 							<td class="px-6 py-4 border-b border-gray-200 text-center font-medium flex flex-wrap justify-center gap-4">
-								<a href="#logged.do?action=edit&id<%= link.getShortLink() %>" title="Editar">
+								<a href="logged.do?action=edit-link&id=<%= link.getShortLink() %>" title="Editar">
 									<span class="material-icons text-blue-500 hover:text-blue-400 transition duration-300">edit</span>
 								</a> 
-								<a href="#logged.do?action=delete&id<%= link.getShortLink() %>" title="Excluir">
+								<a href="logged.do?action=delete-link&id=<%= link.getShortLink() %>" title="Excluir">
 									<span class="material-icons text-red-500 hover:text-red-400 transition duration-300">delete</span>
 								</a> 
-								<a href="#logged.do?action=info&id<%= link.getShortLink() %>" title="Detalhes">
+								<a href="logged.do?action=info-link&id=<%= link.getShortLink() %>" title="Detalhes">
 									<span class="material-icons text-gray-500 hover:text-gray-400 transition duration-300">info</span>
 								</a> 
 							</td>

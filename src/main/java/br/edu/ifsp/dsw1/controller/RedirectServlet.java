@@ -21,8 +21,8 @@ public class RedirectServlet extends HttpServlet {
 	    var dao = new LinkDAOFactory().factory();
 		
 	    String link;
-		if (dao.findyById(shortCode) != null) {
-			link = (dao.findyById(shortCode)).getFullLink();
+		if (dao.findById(shortCode) != null) {
+			link = (dao.findById(shortCode)).getFullLink();
 		} else {
 			link = new ErrorCommand().execute(request, response);
 		}

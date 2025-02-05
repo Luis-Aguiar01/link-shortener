@@ -32,7 +32,7 @@ public class ShortenLinkCommand implements Command {
 
 		while (resultLink == null) {
 			String generatedLink = generateRandomString(length);
-			if (dao.findyById(generatedLink) == null) { // Retorna se for único
+			if (dao.findById(generatedLink) == null) { // Retorna se for único
 				resultLink = generatedLink;
 				if(user != null) {
 					dao.create(new Link(resultLink, link, LinkType.RANDOM), user.getEmail());

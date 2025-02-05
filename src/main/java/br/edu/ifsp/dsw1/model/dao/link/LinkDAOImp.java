@@ -44,11 +44,11 @@ public class LinkDAOImp implements LinkDAO{
 	}
 	
 	@Override
-	public boolean delete(Link link) {
+	public boolean delete(String link) {
 		try (var connection = DatabaseConnection.getConnection();
 			 var preparedStatement = connection.prepareStatement(DELETE_LINK_SQL)) {
 			
-			preparedStatement.setString(1, link.getShortLink());
+			preparedStatement.setString(1, link);
 			return preparedStatement.executeUpdate() > 0;
 		
 		} catch (SQLException exception) {
@@ -57,7 +57,7 @@ public class LinkDAOImp implements LinkDAO{
 	}
 	
 	@Override
-	public Link findyById(String shortLink) {
+	public Link findById(String shortLink) {
 		Link link = null;
 		
 		try (var connection = DatabaseConnection.getConnection();
@@ -84,7 +84,7 @@ public class LinkDAOImp implements LinkDAO{
 	
 	
 	@Override
-	public List<Link> findyByUser(User user) {
+	public List<Link> findByUser(User user) {
 		List<Link> links = new ArrayList<>();
 
 		try (var connection = DatabaseConnection.getConnection();

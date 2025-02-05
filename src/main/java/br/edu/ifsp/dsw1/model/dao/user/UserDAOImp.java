@@ -51,7 +51,7 @@ public class UserDAOImp implements UserDAO{
 				user.setEmail(result.getString("email"));
 				user.setName(result.getString("name"));
 				user.setPassword(result.getString("password"));
-				List<Link> listaLink = databaseLink.findyByUser(user);
+				List<Link> listaLink = databaseLink.findByUser(user);
 				user.setLinks(listaLink);
 			}
 
