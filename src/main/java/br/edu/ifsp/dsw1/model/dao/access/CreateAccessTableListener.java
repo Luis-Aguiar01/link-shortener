@@ -12,7 +12,7 @@ public class CreateAccessTableListener implements ServletContextListener  {
 			+ "		id INTEGER AUTO_INCREMENT PRIMARY KEY,\r\n"
 			+ "		ip VARCHAR(50) NOT NULL,\r\n"
 			+ "    	short_link VARCHAR(50) NOT NULL,\r\n"
-			+ "    	FOREIGN KEY (short_link) REFERENCES link_tb(short_link)\r\n"
+			+ "    	FOREIGN KEY (short_link) REFERENCES link_tb(short_link) ON UPDATE CASCADE ON DELETE CASCADE\r\n"
 			+ ")";
 	
 	public void contextInitialized(ServletContextEvent sce){ 

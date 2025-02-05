@@ -1,5 +1,8 @@
+<%@page import="br.edu.ifsp.dsw1.model.entity.Link"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ 
+<% Link link = (Link) request.getSession(false).getAttribute("link"); %> 
     
 <!DOCTYPE html>
 <html>
@@ -19,10 +22,14 @@
             <form action="disconnected.do?action=login-user" method="POST" class="flex flex-col">
                 <div class="flex items-center border rounded-lg mb-10 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
                     <span class="material-icons text-gray-500">link</span>
-                    <input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="new-link" placeholder="Digite o novo link curto" required/>
+                    <input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="new-link" value = "<%= link.getShortLink() %>" required/>
+                </div>
+                <div class="flex items-center border rounded-lg mb-10 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
+                    <span class="material-icons text-gray-500">link</span>
+                    <input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="new-link" value = "<%= link.getFullLink() %>" required/>
                 </div>
                 <div class="flex items-center self-center w-full gap-5 justify-around">
-                    <a href="#" class="text-md bg-gray-600 py-4 px-6 w-1/2 rounded-lg text-white hover:bg-gray-500 cursor-pointer font-bold text-center focus:outline-none focus:ring-2 focus:ring-gray-300 transition duration-300">Cancelar</a>
+                    <a href="logged.do?action=my-links-page" class="text-md bg-gray-600 py-4 px-6 w-1/2 rounded-lg text-white hover:bg-gray-500 cursor-pointer font-bold text-center focus:outline-none focus:ring-2 focus:ring-gray-300 transition duration-300">Cancelar</a>
                     <input class="text-md bg-blue-600 py-4 px-6 w-1/2 rounded-lg text-white hover:bg-blue-500 cursor-pointer font-bold focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300" type="submit" value="Salvar">
                 </div>
             </form>

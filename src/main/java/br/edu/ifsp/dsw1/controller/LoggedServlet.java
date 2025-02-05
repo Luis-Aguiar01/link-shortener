@@ -4,11 +4,13 @@ import java.io.IOException;
 
 import br.edu.ifsp.dsw1.controller.command.Command;
 import br.edu.ifsp.dsw1.controller.command.DeleteLinkCommand;
+import br.edu.ifsp.dsw1.controller.command.GetEditLinkPageCommand;
 import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
 import br.edu.ifsp.dsw1.controller.command.GetCustomLinkPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetLoggedPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetMyLinksPageCommand;
 import br.edu.ifsp.dsw1.controller.command.LogoutCommand;
+import br.edu.ifsp.dsw1.controller.command.SetSessionLinkCommand;
 import br.edu.ifsp.dsw1.controller.command.ShortenLinkCommand;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -36,6 +38,10 @@ public class LoggedServlet extends HttpServlet {
 			command = new ShortenLinkCommand();
 		} else if ("delete-link".equals(action)) {
 			command = new DeleteLinkCommand();
+		} else if ("edit-link".equals(action)) {
+			command = new SetSessionLinkCommand();
+		} else if ("edit-link-page".equals(action)) {
+			command = new GetEditLinkPageCommand();
 		} else {
 			command = new ErrorCommand();
 		}
