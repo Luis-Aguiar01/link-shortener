@@ -18,11 +18,11 @@ public class ShortenLinkCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		var dao = new LinkDAOFactory().factory();
 		var session = request.getSession(false);
 		User user = null;
-		if(session != null && session.getAttribute("user") != null) {
+		
+		if (session != null && session.getAttribute("user") != null) {
 			user = (User) session.getAttribute("user");
 		}
 		
@@ -34,17 +34,18 @@ public class ShortenLinkCommand implements Command {
 			String generatedLink = generateRandomString(length);
 			if (dao.findById(generatedLink) == null) { // Retorna se for único
 				resultLink = generatedLink;
-				if(user != null) {
+				if (user != null) {
 					dao.create(new Link(resultLink, link, LinkType.RANDOM), user.getEmail());
 				} else {
 					dao.create(new Link(resultLink, link, LinkType.RANDOM), null);
 				}
 			}
 		}
+		
 		request.setAttribute("result_link", resultLink);
 		
 		String view;
-		if(user != null) {
+		if (user != null) {
 			view = "/logged/index-logged.jsp";
 		} else {
 			view = "index.jsp";

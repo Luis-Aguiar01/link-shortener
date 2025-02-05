@@ -13,6 +13,7 @@ class UserDAOImp implements UserDAO{
 	
 	private static final String INSERT_USER_SQL = "INSERT INTO user_tb(email, name, password) VALUES(?, ?, ?)";
 	private static final String FIND_BY_EMAIL_SQL = "SELECT email, name, password FROM user_tb WHERE email = ?";
+	
 	private LinkDAO databaseLink;
 	
 	public UserDAOImp(LinkDAO database) {

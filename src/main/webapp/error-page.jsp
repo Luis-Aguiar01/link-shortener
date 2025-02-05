@@ -24,7 +24,7 @@
 		<div class="text-center text-white mb-10">
 			<p class="mb-4 text-md">O link digitado é inválido.</p>
 			<p class="mb-4 text-md">Por favor, certifique-se de digitar o link corretamente.</p>
-			<p class="text-green-500 text-bold text-md">Exemplo: http://localhost:8080/Link-Shortener/seu-link-personalizado</p>
+			<p class="text-green-500 text-bold text-md">Exemplo: http://localhost:8080/Link-Shortener/seu-link-curto</p>
 		</div>
 
 	</div>	

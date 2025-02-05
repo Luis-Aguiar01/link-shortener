@@ -14,12 +14,11 @@ import jakarta.servlet.http.HttpServletResponse;
 public class DeleteLinkCommand implements Command{
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var short_link = request.getParameter("id");
 		LinkDAO dao = new LinkDAOFactory().factory();
-		dao.delete(short_link);
+		var result = dao.delete(short_link);
+		System.out.println("Result: " + result);
 		
 		User user = (User) request.getSession(false).getAttribute("user");
 		List<Link> lista_nova = dao.findByUser(user);

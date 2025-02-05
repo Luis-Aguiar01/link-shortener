@@ -2,7 +2,6 @@ package br.edu.ifsp.dsw1.controller.command;
 
 import java.io.IOException;
 
-import br.edu.ifsp.dsw1.model.dao.link.LinkDAOFactory;
 import br.edu.ifsp.dsw1.model.dao.user.UserDAOFactory;
 import br.edu.ifsp.dsw1.model.entity.User;
 import jakarta.servlet.ServletException;

@@ -47,11 +47,12 @@ class LinkDAOImp implements LinkDAO{
 	public boolean delete(String link) {
 		try (var connection = DatabaseConnection.getConnection();
 			 var preparedStatement = connection.prepareStatement(DELETE_LINK_SQL)) {
-			
+			System.out.println("Link: " + link);
 			preparedStatement.setString(1, link);
 			return preparedStatement.executeUpdate() > 0;
 		
 		} catch (SQLException exception) {
+			exception.printStackTrace();
 			return false;
 		}
 	}

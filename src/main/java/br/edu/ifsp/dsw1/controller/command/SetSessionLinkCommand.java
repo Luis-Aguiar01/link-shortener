@@ -12,14 +12,12 @@ import jakarta.servlet.http.HttpServletResponse;
 public class SetSessionLinkCommand implements Command{
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var short_link = request.getParameter("id");
 		LinkDAO dao = new LinkDAOFactory().factory();
 		Link link = dao.findById(short_link);
 		
-		if(link != null) {
+		if (link != null) {
 			request.getSession(false).setAttribute("link", link);
 			return "logged.do?action=edit-link-page";
 		} else{
