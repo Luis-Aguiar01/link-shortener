@@ -26,7 +26,7 @@ public class DisconnectedServlet extends HttpServlet {
 	public void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var action = request.getParameter("action");
 		Command command = null;
-		
+			
 		if ("home".equals(action)) {
 			command = new HomeCommand();
 		} else if ("login-page".equals(action)) {

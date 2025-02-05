@@ -8,7 +8,7 @@ document.getElementById('emailForm').addEventListener('submit', (event) => {
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: new URLSearchParams(new FormData(this)),
+    body: new URLSearchParams(new FormData(event.target))
   })
     .then(response => response.json())
     .then(data => {

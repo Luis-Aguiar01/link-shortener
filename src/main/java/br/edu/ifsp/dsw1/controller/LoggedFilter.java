@@ -21,7 +21,7 @@ public class LoggedFilter implements Filter {
         // Verificar se a URL tem o parâmetro "action" com valor "contact-page" ou "questions-page"
         String action = httpRequest.getParameter("action");
 
-        if (action != null && (action.equals("contact-page") || action.equals("questions-page"))) {
+        if (action != null && (action.equals("contact-page") || action.equals("questions-page") || action.equals("question-email"))) {
             // Permite a requisição para as páginas de contacts ou questions
             chain.doFilter(request, response);
         } else {
