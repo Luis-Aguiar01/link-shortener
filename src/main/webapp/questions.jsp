@@ -17,7 +17,10 @@
 	<% } %>
 	
 	<div class="self-center sm:w-2/3 mt-8 mb-10 w-full">
-		<h1 class="font-bold text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Dúvidas Frequentes</h1>
+		<h1 class="flex items-center justify-center font-bold text-4xl text-center text-white mt-5 mb-10 leading-relaxed">
+			<span class="material-symbols-outlined text-[30px] mr-5">help</span>
+			Dúvidas Frequentes
+		</h1>
 		
 		<div class="text-center text-white mb-10">
 			<p class="mb-4">Encontre respostas para as perguntas mais comuns abaixo.</p>

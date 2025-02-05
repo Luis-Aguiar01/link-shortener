@@ -1,7 +1,5 @@
 package br.edu.ifsp.dsw1.model.dao.access;
 
-import br.edu.ifsp.dsw1.model.dao.link.LinkDAOFactory;
-
 public class AccessDAOFactory {
 	
 private AccessDAOType accessType;

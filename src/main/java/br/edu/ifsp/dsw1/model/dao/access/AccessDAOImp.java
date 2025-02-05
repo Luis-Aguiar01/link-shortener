@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ifsp.dsw1.model.dao.connection.DatabaseConnection;
-import br.edu.ifsp.dsw1.model.dao.link.LinkDAO;
 import br.edu.ifsp.dsw1.model.entity.Access;
 import br.edu.ifsp.dsw1.model.entity.Link;
 
-public class AccessDAOImp implements AccessDAO{
+class AccessDAOImp implements AccessDAO {
 	
 	private static final String INSERT_ACCESS_SQL = "INSERT INTO access_tb (ip, short_link) VALUES (?, ?)"; 
 	private static final String SELECT_BY_LINK_ACCESS_SQL = "SELECT id, ip FROM access_tb WHERE short_link = ?";
@@ -27,9 +26,7 @@ public class AccessDAOImp implements AccessDAO{
 			return false;
 		}
 	}
-	
-	
-	 
+
 	@Override
 	public List<Access> findByLink(Link link) {
 		List<Access> accesses = new ArrayList<>();	

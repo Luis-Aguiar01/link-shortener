@@ -9,7 +9,7 @@ import br.edu.ifsp.dsw1.model.dao.link.LinkDAO;
 import br.edu.ifsp.dsw1.model.entity.Link;
 import br.edu.ifsp.dsw1.model.entity.User;
 
-public class UserDAOImp implements UserDAO{
+class UserDAOImp implements UserDAO{
 	
 	private static final String INSERT_USER_SQL = "INSERT INTO user_tb(email, name, password) VALUES(?, ?, ?)";
 	private static final String FIND_BY_EMAIL_SQL = "SELECT email, name, password FROM user_tb WHERE email = ?";

@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ifsp.dsw1.model.dao.access.AccessDAO;
-import br.edu.ifsp.dsw1.model.dao.access.AccessDAOImp;
 import br.edu.ifsp.dsw1.model.dao.connection.DatabaseConnection;
 import br.edu.ifsp.dsw1.model.entity.Access;
 import br.edu.ifsp.dsw1.model.entity.Link;
 import br.edu.ifsp.dsw1.model.entity.User;
 import br.edu.ifsp.dsw1.model.enums.LinkType;
 
-public class LinkDAOImp implements LinkDAO{
+class LinkDAOImp implements LinkDAO{
 	
 	private static final String INSERT_LINK_SQL = "INSERT INTO link_tb (short_link, full_link, user_email, type) VALUES (?,?,?, ?)";
 	private static final String DELETE_LINK_SQL = "DELETE FROM link_tb WHERE short_link = ?";
@@ -20,6 +19,7 @@ public class LinkDAOImp implements LinkDAO{
 	private static final String COUNT_LINK_SQL = "SELECT COUNT(*) FROM link_tb";
 	private static final String FIND_BY_ID_SQL = "SELECT short_link, full_link, type FROM link_tb WHERE short_link = ?";
 	private static final String FIND_BY_USER_SQL = "SELECT short_link, full_link, type FROM link_tb WHERE user_email = ?";
+	
 	private AccessDAO databaseAccess;
 	
 	public LinkDAOImp(AccessDAO daoAccess) {
@@ -103,9 +103,7 @@ public class LinkDAOImp implements LinkDAO{
 				links.add(link);
 				
 			}
-			
-			
-				
+
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
@@ -118,9 +116,9 @@ public class LinkDAOImp implements LinkDAO{
 		try (var connection = DatabaseConnection.getConnection();
 			 var preparedStatement = connection.prepareStatement(UPDATE_LINK_SQL)){
 			
-			preparedStatement.setString(1, link.getShortLink()); //Link novo a ser inserido
+			preparedStatement.setString(1, link.getShortLink());
 			preparedStatement.setString(2, link.getFullLink()); 
-			preparedStatement.setString(3, shortLink); //Link antigo
+			preparedStatement.setString(3, shortLink);
 			
 			return preparedStatement.executeUpdate() > 0;
 
