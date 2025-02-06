@@ -8,6 +8,7 @@ import br.edu.ifsp.dsw1.controller.command.EditLinkCommand;
 import br.edu.ifsp.dsw1.controller.command.GetEditLinkPageCommand;
 import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
 import br.edu.ifsp.dsw1.controller.command.GetCustomLinkPageCommand;
+import br.edu.ifsp.dsw1.controller.command.GetInfoLinkPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetLoggedPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetMyLinksPageCommand;
 import br.edu.ifsp.dsw1.controller.command.LogoutCommand;
