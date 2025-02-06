@@ -9,24 +9,26 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class GetEditLinkPageCommand implements Command{
+public class EditLinkCommand implements Command{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		var short_link = request.getParameter("id");
-		LinkDAO dao = new LinkDAOFactory().factory();
-		Link link = dao.findById(short_link);
+		var id = request.getParameter("id");
+		var shortLink = request.getParameter("short-link");
+		var fullLink = request.getParameter("full-link");
 		
-		if (link != null) {
-			request.setAttribute("link", link);
-			return "/logged/edit-link-form.jsp";
-		} else{
-			return "logged.do?action=my-links-page";
+		if(shortLink.length() >= 5 && shortLink.length() <= 12) {
+			Link link = new Link();
+			link.setFullLink(fullLink);
+			link.setShortLink(shortLink);
+			
+			LinkDAO dao = new LinkDAOFactory().factory();
+			dao.update(id, link);
 		}
 		
-		
+		return "logged.do?action=my-links-page";	
 	}
 
 }

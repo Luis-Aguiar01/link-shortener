@@ -49,7 +49,7 @@
 							    </a>
 							</td>
 							<td class="px-6 py-4 border-b border-gray-200 text-center font-medium flex flex-wrap justify-center gap-4">
-								<a href="logged.do?action=edit-link&id=<%= link.getShortLink() %>" title="Editar">
+								<a href="logged.do?action=edit-link-page&id=<%= link.getShortLink() %>" title="Editar">
 									<span class="material-icons text-blue-500 hover:text-blue-400 transition duration-300">edit</span>
 								</a> 
 								<a href="logged.do?action=delete-link&id=<%= link.getShortLink() %>" title="Excluir">
