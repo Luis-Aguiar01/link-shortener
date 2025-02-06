@@ -8,6 +8,7 @@ import br.edu.ifsp.dsw1.controller.command.EditLinkCommand;
 import br.edu.ifsp.dsw1.controller.command.GetEditLinkPageCommand;
 import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
 import br.edu.ifsp.dsw1.controller.command.GetCustomLinkPageCommand;
+import br.edu.ifsp.dsw1.controller.command.CustomLinkCommand;
 import br.edu.ifsp.dsw1.controller.command.GetInfoLinkPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetLoggedPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetMyLinksPageCommand;
@@ -37,6 +38,8 @@ public class LoggedServlet extends HttpServlet {
 			command = new GetCustomLinkPageCommand();
 		} else if ("shorten-link".equals(action)) {
 			command = new ShortenLinkCommand();
+		} else if ("custom-link".equals(action)) {
+			command = new CustomLinkCommand();
 		} else if ("delete-link".equals(action)) {
 			command = new DeleteLinkCommand();
 		} else if ("edit-link-page".equals(action)) {
