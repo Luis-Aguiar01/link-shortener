@@ -35,10 +35,6 @@
 						<summary class="font-semibold text-white cursor-pointer">Como faço para me cadastrar?</summary>
 						<p class="text-gray-300 mt-2">Clique em "Cadastre-se" no menu superior e preencha o formulário com seus dados.</p>
 					</details>
-					<details class="mb-4">
-						<summary class="font-semibold text-white cursor-pointer">Esqueci minha senha. O que fazer?</summary>
-						<p class="text-gray-300 mt-2">Clique em "Esqueci minha senha" na página de login e siga as instruções para redefinição.</p>
-					</details>
 				</div>
 			</div>
 
