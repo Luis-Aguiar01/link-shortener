@@ -18,17 +18,37 @@ public class EditLinkCommand implements Command{
 		var id = request.getParameter("id");
 		var shortLink = request.getParameter("short-link");
 		var fullLink = request.getParameter("full-link");
+		LinkDAO dao = new LinkDAOFactory().factory();
+		var success = true;
+		var message = "";
 		
 		if(shortLink.length() >= 5 && shortLink.length() <= 12) {
 			Link link = new Link();
 			link.setFullLink(fullLink);
 			link.setShortLink(shortLink);
 			
-			LinkDAO dao = new LinkDAOFactory().factory();
-			dao.update(id, link);
+			if(dao.update(id, link)) {
+				message = "Link Editado Com Sucesso!";
+				
+			} else {
+				success = false;
+				message = "Não Foi Possível Editar o Link.";
+			}
+		} else {
+			success = false;
+			message = "O Link Curto Deve Ter De 5 a 12 Caracteres.";
 		}
 		
-		return "logged.do?action=my-links-page";	
+		request.setAttribute("success", success);
+		request.setAttribute("message", message);
+		
+		
+		if(success) {
+			return "logged.do?action=my-links-page";
+		} else {
+			request.setAttribute("link", dao.findById(id)); // Mandar Link Novamente Para Pré-Preencher o Formulário Novamente.
+			return "logged.do?action=edit-link-page";	
+		}
 	}
 
 }

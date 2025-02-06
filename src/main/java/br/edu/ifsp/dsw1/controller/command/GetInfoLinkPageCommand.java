@@ -20,17 +20,19 @@ public class GetInfoLinkPageCommand implements Command{
 			throws ServletException, IOException {
 		
 		var short_link = request.getParameter("id");
-		LinkDAO l_dao = new LinkDAOFactory().factory();
-		AccessDAO a_dao = new AccessDAOFactory().factory();
+		LinkDAO linkDao = new LinkDAOFactory().factory();
+		AccessDAO accessDao = new AccessDAOFactory().factory();
 		
-		Link link = l_dao.findById(short_link);
-		List<Access> list = a_dao.findByLink(link);
-		link.setListAccess(list);
+		Link link = linkDao.findById(short_link);
 		
 		if(link != null) {
+			List<Access> list = accessDao.findByLink(link);
+			link.setListAccess(list);
 			request.setAttribute("link", link);
 			return "logged/link-details.jsp";
 		} else {
+			request.setAttribute("success", false);
+			request.setAttribute("message", "Não Foi Possível Encontrar o Link Selecionado.");
 			return "logged.do?action=my-links-page";
 		}
 	}

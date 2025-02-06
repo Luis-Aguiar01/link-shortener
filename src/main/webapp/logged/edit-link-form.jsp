@@ -2,7 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  
-<% Link link = (Link) request.getAttribute("link"); %> 
+<% 
+	Link link = (Link) request.getAttribute("link");
+	var message = request.getAttribute("message");
+	var success = (Boolean) request.getAttribute("success");
+%> 
     
 <!DOCTYPE html>
 <html>
@@ -24,6 +28,19 @@
 			} else { 
 			%>
             <form action="logged.do?action=edit-link" method="POST" class="flex flex-col">
+            <% if (message != null && success != null) {
+				if (success) {
+			%>
+				<div class="self-center justify-self-start mb-5 text-green-700 text-xl">
+					<%= message %>
+				</div>
+			<%  } else { %>
+				<div class="self-center justify-self-start mb-5 text-red-700 text-xl">
+					<%= message %>
+				</div>
+				
+			<%  }  %>
+			<% } %>
                 <div class="flex items-center border rounded-lg mb-10 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
                     <span class="material-icons text-gray-500">link</span>
                     <input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="short-link" value = "<%= link.getShortLink() %>" minlength="5" maxlength="10" required/>

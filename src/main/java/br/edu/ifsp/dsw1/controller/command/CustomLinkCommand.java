@@ -20,17 +20,21 @@ public class CustomLinkCommand implements Command {
 		var success = true;
 		var message = "";
 		
-		var dao = new LinkDAOFactory().factory();
-		User user = (User) request.getSession(false).getAttribute("user");
-		
-		
-		if(dao.findById(custom_link) == null) {
-			dao.create(new Link(custom_link, full_link, LinkType.CUSTOM), user.getEmail());
-			message = "Link Criado Com Sucesso!";
+		if(custom_link.length() >= 5 && custom_link.length() <= 12) {
+			var dao = new LinkDAOFactory().factory();
+			User user = (User) request.getSession(false).getAttribute("user");
 			
+			if(dao.findById(custom_link) == null) {
+				dao.create(new Link(custom_link, full_link, LinkType.CUSTOM), user.getEmail());
+				message = "Link Criado Com Sucesso!";
+				
+			} else {
+				success = false;
+				message = "Não foi Possível Inserir o Link.";
+			}
 		} else {
 			success = false;
-			message = "Não foi Possível Inserir o Link.";
+			message = "O Link Customizado Deve Ter De 5 a 12 Caracteres.";
 		}
 		
 		request.setAttribute("success", success);
