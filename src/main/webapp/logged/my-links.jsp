@@ -6,6 +6,8 @@
 
 <%
 	var user = (User) session.getAttribute("user");
+	var message = request.getAttribute("message");
+	var success = (Boolean) request.getAttribute("success");
 	var links = user.getLinks();
 %>
 	
@@ -21,6 +23,19 @@
 	<jsp:include page="./includes/logged-header.jsp" />
 	
 	<h1 class="font-bold text-4xl text-center text-white mt-10 mb-8 leading-relaxed">Meus Links &#128279;</h1>
+	
+	<% if (message != null && success != null) {
+		if (success) {
+	%>
+		<div class="self-center justify-self-start mb-5 text-green-700 text-xl">
+			<%= message %>
+		</div>
+	<%  } else { %>
+		<div class="self-center justify-self-start mb-5 text-red-700 text-xl">
+			<%= message %>
+		</div>
+	<%  }  %>
+	<% } %>
 	
 	<div class="container mx-auto px-4 max-w-7xl mb-20">
 	

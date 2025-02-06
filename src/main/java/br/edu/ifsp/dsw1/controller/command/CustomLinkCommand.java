@@ -1,9 +1,7 @@
 package br.edu.ifsp.dsw1.controller.command;
 
 import java.io.IOException;
-import java.util.Random;
 
-import br.edu.ifsp.dsw1.model.dao.link.CheckLinkListener;
 import br.edu.ifsp.dsw1.model.dao.link.LinkDAOFactory;
 import br.edu.ifsp.dsw1.model.entity.Link;
 import br.edu.ifsp.dsw1.model.entity.User;
@@ -16,8 +14,28 @@ public class CustomLinkCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		var custom_link = request.getParameter("custom-link");
+		var full_link = request.getParameter("full-link");
+		var success = true;
+		var message = "";
+		
 		var dao = new LinkDAOFactory().factory();
+		User user = (User) request.getSession(false).getAttribute("user");
+		
+		
+		if(dao.findById(custom_link) == null) {
+			dao.create(new Link(custom_link, full_link, LinkType.CUSTOM), user.getEmail());
+			message = "Link Criado Com Sucesso!";
+			
+		} else {
+			success = false;
+			message = "Não foi Possível Inserir o Link.";
+		}
+		
+		request.setAttribute("success", success);
+		request.setAttribute("message", message);
 
-		return "";
+		return "logged.do?action=custom-link-page";
 	}
 }

@@ -1,5 +1,11 @@
+<%@page import="br.edu.ifsp.dsw1.model.entity.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	var message = request.getAttribute("message");
+	var success = (Boolean) request.getAttribute("success");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -17,6 +23,19 @@
 			<h1 class="text-3xl font-bold sm:text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Crie o seu link personalizado</h1>
 			
 			<form action="logged.do?action=custom-link" method="POST" class="flex flex-col">
+			<% if (message != null && success != null) {
+				if (success) {
+			%>
+				<div class="self-center justify-self-start mb-5 text-green-700 text-xl">
+					<%= message %>
+				</div>
+			<%  } else { %>
+				<div class="self-center justify-self-start mb-5 text-red-700 text-xl">
+					<%= message %>
+				</div>
+				
+			<%  }  %>
+			<% } %>
 				<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 					<span class="material-icons text-gray-500">link</span>
 					<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="full-link" placeholder="Digite o link completo" required/>
