@@ -12,6 +12,7 @@ class AccessDAOImp implements AccessDAO {
 	
 	private static final String INSERT_ACCESS_SQL = "INSERT INTO access_tb (ip, short_link) VALUES (?, ?)"; 
 	private static final String SELECT_BY_LINK_ACCESS_SQL = "SELECT id, ip FROM access_tb WHERE short_link = ?";
+	private static final String COUNT_ACCESS_SQL = "SELECT COUNT(*) FROM access_tb";
 	
 	@Override
 	public boolean create(Link link, String ip) {
@@ -52,4 +53,27 @@ class AccessDAOImp implements AccessDAO {
 		
 		return accesses;
 	}
+	
+	@Override
+	public long count() {
+		Long accessQuantity = 0L;
+		try (var connection = DatabaseConnection.getConnection();
+				 var ps = connection.prepareStatement(COUNT_ACCESS_SQL)) {
+			
+			var count = ps.executeQuery();
+	
+			if (count.next()) {
+				accessQuantity = count.getLong(1);
+			}
+
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+		return accessQuantity;
+		
+	}
+	
+	
 }

@@ -10,5 +10,7 @@ public interface AccessDAO {
 	boolean create(Link link, String ip);
 	
 	List<Access> findByLink(Link link);
+	
+	long count();
 
 }

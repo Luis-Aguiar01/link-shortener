@@ -8,6 +8,7 @@ import br.edu.ifsp.dsw1.controller.command.GetContactPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetLoginPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetQuestionsPageCommand;
 import br.edu.ifsp.dsw1.controller.command.GetRegisterPageCommand;
+import br.edu.ifsp.dsw1.controller.command.GetStatisticsPageCommand;
 import br.edu.ifsp.dsw1.controller.command.HomeCommand;
 import br.edu.ifsp.dsw1.controller.command.LoginCommand;
 import br.edu.ifsp.dsw1.controller.command.RegisterUserCommand;
@@ -45,6 +46,8 @@ public class DisconnectedServlet extends HttpServlet {
 			command = new SendEmailCommand();
 		} else if ("shorten-link".equals(action)) {
 			command = new ShortenLinkCommand();
+		} else if ("statistics".equals(action)) {
+			command = new GetStatisticsPageCommand();
 		} else {
 			command = new ErrorCommand();
 		}

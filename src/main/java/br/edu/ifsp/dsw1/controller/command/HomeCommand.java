@@ -10,6 +10,7 @@ public class HomeCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		return "index.jsp";
 	}
 }

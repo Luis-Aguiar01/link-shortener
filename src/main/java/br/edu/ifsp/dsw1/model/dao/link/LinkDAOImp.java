@@ -127,7 +127,8 @@ class LinkDAOImp implements LinkDAO{
 			return false;
 		}
 	}
-	
+
+	@Override
 	public long count() {
 		long linkQuantity = 0L;
 		

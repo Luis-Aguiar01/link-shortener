@@ -3,6 +3,7 @@
 
 <%
 	var resultLink = request.getAttribute("result_link");
+	
 %>
 
 <!DOCTYPE html>
@@ -34,12 +35,6 @@
 		
 		<div class="text-center text-white mb-10">
 			<p class="mb-4">Compartilhe em redes sociais, e-mails ou mensagens de texto.</p>
-		</div>
-
-		<div class="bg-gray-700 rounded-lg p-4 text-white">
-			<h2 class="font-bold text-2xl mb-4">Estatísticas</h2>
-			<p>Total de links encurtados: <span class="font-bold">200</span></p>
-			<p>Total de cliques: <span class="font-bold">250</span></p>
 		</div>
 
 	</div>	

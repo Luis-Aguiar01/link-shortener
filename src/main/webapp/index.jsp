@@ -40,12 +40,6 @@
 			<p>Cadastre-se e personalize seu link para facilitar o acesso.</p>
 		</div>
 
-		<div class="bg-gray-700 rounded-lg p-4 sm:p-6 text-white">
-			<h2 class="font-bold text-2xl mb-4">Estatísticas</h2>
-			<p>Total de links encurtados: <span class="font-bold">200</span></p>
-			<p>Total de cliques: <span class="font-bold">250</span></p>
-		</div>
-
 		<div class="text-center mt-10">
 			<a href="disconnected.do?action=register-page" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300 w-full sm:w-auto block sm:inline-block">Cadastre-se para mais funcionalidades</a>
 		</div>
