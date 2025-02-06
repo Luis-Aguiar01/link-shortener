@@ -2,6 +2,8 @@ package br.edu.ifsp.dsw1.controller.command;
 
 import java.io.IOException;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import br.edu.ifsp.dsw1.model.dao.link.CheckLinkListener;
 import br.edu.ifsp.dsw1.model.dao.link.LinkDAOFactory;
@@ -29,20 +31,27 @@ public class ShortenLinkCommand implements Command {
 		String resultLink = null;
 		String link = request.getParameter("link");
 		int length = CheckLinkListener.getUrlSize();
-
-		while (resultLink == null) {
-			String generatedLink = generateRandomString(length);
-			if (dao.findById(generatedLink) == null) { // Retorna se for único
-				resultLink = generatedLink;
-				if (user != null) {
-					dao.create(new Link(resultLink, link, LinkType.RANDOM), user.getEmail());
-				} else {
-					dao.create(new Link(resultLink, link, LinkType.RANDOM), null);
+		
+		String regex = "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(link);
+		
+		if(matcher.matches()) {
+			while (resultLink == null) {
+				String generatedLink = generateRandomString(length);
+				if (dao.findById(generatedLink) == null) { // Retorna se for único
+					resultLink = generatedLink;
+					if (user != null) {
+						dao.create(new Link(resultLink, link, LinkType.RANDOM), user.getEmail());
+					} else {
+						dao.create(new Link(resultLink, link, LinkType.RANDOM), null);
+					}
 				}
 			}
+			request.setAttribute("result_link", resultLink);
+		} else {
+			request.setAttribute("message", "Erro, link inválido.");
 		}
-		
-		request.setAttribute("result_link", resultLink);
 		
 		String view;
 		if (user != null) {

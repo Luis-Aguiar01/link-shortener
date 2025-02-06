@@ -23,7 +23,7 @@ public class CustomLinkCommand implements Command {
 		if(custom_link.length() >= 5 && custom_link.length() <= 12) {
 			var dao = new LinkDAOFactory().factory();
 			User user = (User) request.getSession(false).getAttribute("user");
-			
+
 			if(dao.findById(custom_link) == null) {
 				dao.create(new Link(custom_link, full_link, LinkType.CUSTOM), user.getEmail());
 				message = "Link Criado Com Sucesso!";
