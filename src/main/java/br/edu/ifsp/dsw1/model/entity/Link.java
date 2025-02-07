@@ -63,8 +63,6 @@ public class Link {
 		return Objects.hash(shortLink);
 	}
 	
-	
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

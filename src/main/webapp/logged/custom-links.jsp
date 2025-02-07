@@ -43,7 +43,7 @@
 				
 				<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 					<span class="material-icons text-gray-500">link</span>
-					<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="custom-link" placeholder="Digite o seu link personalizado" minlength="5" maxlength="10" required/>
+					<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="custom-link" placeholder="Digite o seu link personalizado" minlength="5" maxlength="12" pattern = "[a-zA-Z0-9_]{5,12}" required/>
 				</div>
 			
 				<input type="submit" value="Gerar" class="bg-green-600 px-10 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300 self-center">

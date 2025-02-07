@@ -32,7 +32,7 @@ public class ShortenLinkCommand implements Command {
 		String link = request.getParameter("link");
 		int length = CheckLinkListener.getUrlSize();
 		
-		String regex = "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$";
+		String regex = "^(https?|ftp):\\/\\/[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}.*$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(link);
 		
@@ -50,7 +50,7 @@ public class ShortenLinkCommand implements Command {
 			}
 			request.setAttribute("result_link", resultLink);
 		} else {
-			request.setAttribute("message", "Erro, link inválido.");
+			request.setAttribute("message", "O Link Completo Informado é Inválido.");
 		}
 		
 		String view;

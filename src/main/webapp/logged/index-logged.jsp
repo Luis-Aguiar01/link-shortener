@@ -3,7 +3,7 @@
 
 <%
 	var resultLink = request.getAttribute("result_link");
-	
+	var message = request.getAttribute("message");
 %>
 
 <!DOCTYPE html>
@@ -31,6 +31,8 @@
 		
 		<%if(resultLink != null) { %>
 			<p class="text-md text-center sm:text-lg text-green-500 font-bold mb-10 break-all">Seu link: <%= request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" + resultLink %></p>
+		<%} else if(message != null) { %>
+			<p class="text-md text-center sm:text-lg text-red-500 font-bold mb-10 break-all"><%= message %></p>
 		<%} %>
 		
 		<div class="text-center text-white mb-10">
