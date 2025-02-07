@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class RegisterUserCommand implements Command{
 
+	/*Command responsável por realizar o cadastro do usuário no sistema, a partir dos dados inseridos da página de registro.*/
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var name = request.getParameter("name");

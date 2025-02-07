@@ -12,6 +12,7 @@ public class GetMyLinksPageCommand implements Command {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Esse método busca o usuário que está salvo na sessão, para obter os links customizados que estão atribuidos a ele.
 		var userSession = request.getSession(false);
 		var factoryDao = new UserDAOFactory().factory();
 		

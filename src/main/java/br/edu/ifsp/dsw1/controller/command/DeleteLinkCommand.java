@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class DeleteLinkCommand implements Command{
 
+	/*Command responsável pela ação de deletar o link do usuário*/
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var short_link = request.getParameter("id");

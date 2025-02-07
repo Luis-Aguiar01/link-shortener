@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class CustomLinkCommand implements Command {
 
+	//Command responsável pela validação dos links criados pelo usuário
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var custom_link = request.getParameter("custom-link");

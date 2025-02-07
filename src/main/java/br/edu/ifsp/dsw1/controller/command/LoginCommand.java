@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class LoginCommand implements Command{
 
+	/*Command responsável por verificar os dados de login inseridos e direcionar para a página correspondente. */
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var email = request.getParameter("email");

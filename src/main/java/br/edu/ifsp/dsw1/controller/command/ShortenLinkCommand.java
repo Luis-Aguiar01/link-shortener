@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class ShortenLinkCommand implements Command {
+	//Command responsável por realizar a ação de criação random de um link customizado para o usuário.
 	private static final String CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_";
 	private static final Random RANDOM = new Random();
 
