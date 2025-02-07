@@ -99,12 +99,12 @@ class LinkDAOImp implements LinkDAO{
 				link.setShortLink(result.getString("short_link"));
 				link.setFullLink(result.getString("full_link"));
 				link.setType(LinkType.valueOf(result.getString("type")));
+				
 				List<Access> listaAcesso = databaseAccess.findByLink(link);
 				link.setListAccess(listaAcesso);
-				links.add(link);
 				
+				links.add(link);
 			}
-
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}

@@ -16,7 +16,6 @@ public class CustomLinkCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		var custom_link = request.getParameter("custom-link");
 		var full_link = request.getParameter("full-link");
 		var success = true;
@@ -26,37 +25,36 @@ public class CustomLinkCommand implements Command {
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(full_link);
 		
-		if(matcher.matches()) {
-			if(custom_link.length() >= 5 && custom_link.length() <= 12) {
+		if (matcher.matches()) {
+			if (custom_link.length() >= 5 && custom_link.length() <= 12) {
 				
 				regex = "[a-zA-Z0-9_]{5,12}";
 				pattern = Pattern.compile(regex);
 				matcher = pattern.matcher(custom_link);
 				
-				if(matcher.matches()) {
+				if (matcher.matches()) {
 					var dao = new LinkDAOFactory().factory();
 					User user = (User) request.getSession(false).getAttribute("user");
 
-					if(dao.findById(custom_link) == null) {
+					if (dao.findById(custom_link) == null) {
 						dao.create(new Link(custom_link, full_link, LinkType.CUSTOM), user.getEmail());
-						message = "Link Criado Com Sucesso!";
-						
+						message = "Link criado com sucesso!";
+						request.setAttribute("custom-link", custom_link);
 					} else {
 						success = false;
-						message = "Não foi Possível Inserir o Link.";
+						message = "Não foi possível inserir o link.";
 					}
 				} else {
 					success = false;
-					message = "O Link Customizado Não Segue o Padrão.";
+					message = "O link customizado não segue o padrão.";
 				}
 			} else {
 				success = false;
-				message = "O Link Customizado Deve Ter De 5 a 12 Caracteres.";
+				message = "O link customizado deve ter de 5 a 12 caracteres.";
 			}
-			
 		} else {
 			success = false;
-			message = "O Link Completo Informado é Inválido.";
+			message = "O link completo informado é inválido.";
 		}
 		
 		request.setAttribute("success", success);

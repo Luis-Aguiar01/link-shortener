@@ -14,9 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class EditLinkCommand implements Command{
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var id = request.getParameter("id");
 		var shortLink = request.getParameter("short-link");
 		var fullLink = request.getParameter("full-link");
@@ -28,36 +26,36 @@ public class EditLinkCommand implements Command{
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(fullLink);
 		
-		if(matcher.matches()) {
-			if(shortLink.length() >= 5 && shortLink.length() <= 12) {
+		if (matcher.matches()) {
+			if (shortLink.length() >= 5 && shortLink.length() <= 12) {
 				regex = "[a-zA-Z0-9_]{5,12}";
 				pattern = Pattern.compile(regex);
 				matcher = pattern.matcher(shortLink);
 				
-				if(matcher.matches()) {
+				if (matcher.matches()) {
 					Link link = new Link();
 					link.setFullLink(fullLink);
 					link.setShortLink(shortLink);
 					
-					if(dao.update(id, link)) {
-						message = "Link Editado Com Sucesso!";
+					if (dao.update(id, link)) {
+						message = "Link editado com sucesso!";
 					} else {
 						success = false;
-						message = "Não Foi Possível Editar o Link.";
+						message = "Não foi possível editar o link.";
 					}
 				}
 				else {
 					success = false;
-					message = "O Link Customizado Não Segue o Padrão.";
+					message = "O link customizado não segue o padrão.";
 				}	
 			} else {
 				success = false;
-				message = "O Link Curto Deve Ter De 5 a 12 Caracteres.";
+				message = "O link curto deve ter de 5 a 12 caracteres.";
 			}
 			
 		} else {
 			success = false;
-			message = "O Link Completo Informado é Inválido.";
+			message = "O link completo informado é inválido.";
 		}
 		
 		request.setAttribute("success", success);

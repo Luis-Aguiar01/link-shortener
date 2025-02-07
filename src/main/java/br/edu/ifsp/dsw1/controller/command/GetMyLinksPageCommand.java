@@ -16,7 +16,7 @@ public class GetMyLinksPageCommand implements Command {
 		var factoryDao = new UserDAOFactory().factory();
 		
 		if (userSession != null && userSession.getAttribute("user") != null) {
-			User user = (User)userSession.getAttribute("user");
+			User user = (User) userSession.getAttribute("user");
 			var email = user.getEmail();
 			User usuarioBanco = factoryDao.findByEmail(email);
 			userSession.setAttribute("user", usuarioBanco);	

@@ -15,8 +15,8 @@ public class LoginCommand implements Command{
 		var email = request.getParameter("email");
 		var passwd = request.getParameter("password");
 		
-		var dao = new UserDAOFactory().factory();
-		var user = dao.findByEmail(email);
+		var userDao = new UserDAOFactory().factory();
+		var user = userDao.findByEmail(email);
 		var autorized = User.authenticate(user, email, passwd);
 
 		String view;

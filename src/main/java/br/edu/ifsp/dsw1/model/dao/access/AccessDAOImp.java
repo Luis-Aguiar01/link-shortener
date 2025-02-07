@@ -58,22 +58,16 @@ class AccessDAOImp implements AccessDAO {
 	public long count() {
 		Long accessQuantity = 0L;
 		try (var connection = DatabaseConnection.getConnection();
-				 var ps = connection.prepareStatement(COUNT_ACCESS_SQL)) {
+			 var ps = connection.prepareStatement(COUNT_ACCESS_SQL)) {
 			
 			var count = ps.executeQuery();
-	
 			if (count.next()) {
 				accessQuantity = count.getLong(1);
 			}
-
-			
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	
 		return accessQuantity;
-		
 	}
-	
-	
 }

@@ -12,6 +12,7 @@
 <meta charset="UTF-8">
 <title>Home</title>
 <jsp:include page="includes/links.jsp" />
+<script type="text/javascript" src="scripts/copy-link.js" defer></script>
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
 	
@@ -21,33 +22,58 @@
 		<jsp:include page="/includes/header.jsp" />
 	<% } %>
 
-	<div class="self-center w-full max-w-3xl px-4 mt-8 mb-10">
-		<h1 class="text-2xl font-bold sm:text-4xl text-center text-white mt-5 mb-10 leading-relaxed">Encurte o seu link em apenas 1 segundo</h1>
+	<div class="flex-1 flex items-center justify-center">
+		<div class="w-full max-w-2xl mt-8 mb-10 p-6 bg-gray-700 rounded-lg shadow-lg">
+			<h1 class="text-3xl font-bold sm:text-3xl text-center text-white mb-8 leading-relaxed">Encurte o seu link</h1>
 		
-		<form action="disconnected.do?action=shorten-link" method="POST" class="flex flex-col">
-			<div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
-				<span class="material-icons text-gray-500 ml-2">link</span>
-				<input class="px-3 py-4 bg-transparent outline-none w-full placeholder-gray-500" type="text" name="link" placeholder="Digite o seu link" required/>
-				<button type="submit" class="hidden sm:block bg-blue-600 px-3 py-2 text-sm text-center font-bold text-white rounded-lg hover:bg-blue-500 cursor-pointer transition duration-300">Encurtar</button>
-			</div>
-			<button type="submit" class="sm:hidden bg-blue-600 px-3 py-2 mb-5 text-sm text-center font-bold text-white rounded-lg hover:bg-blue-500 cursor-pointer transition duration-300">Encurtar</button>
-		</form>
-		
-		<%if(resultLink != null) { %>
-			<p class="text-md text-center sm:text-lg text-green-500 font-bold mb-10 break-all">Seu link: <%= request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" + resultLink %></p>
-		<%} else if(message != null) { %>
-			<p class="text-md text-center sm:text-lg text-red-500 font-bold mb-10 break-all"><%= message %></p>
-		<%} %>
-		<div class="text-center text-white mb-10">
-			<p class="mb-4">Compartilhe em redes sociais, e-mails ou mensagens de texto.</p>
-			<p>Cadastre-se e personalize seu link para facilitar o acesso.</p>
-		</div>
-
-		<div class="text-center mt-10">
-			<a href="disconnected.do?action=register-page" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300 w-full sm:w-auto block sm:inline-block">Cadastre-se para mais funcionalidades</a>
-		</div>
-	</div>	
+		<% if (resultLink != null) { %>
+				
+				<div class="mb-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700">
+					<p>Link gerado com sucesso!</p>
+				</div>
+				
+				<div class="flex items-center justify-between mb-6 p-4 bg-gray-600 rounded-lg">
+					<p class="text-md sm:text-lg text-green-400 font-mono break-all font-bold" id="text-to-copy">
+						<%= request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" + resultLink %>
+					</p>
+					
+					<button id="copy-button" class="text-center" title="Copiar">
+						<span class="material-icons text-white hover:text-green-400 transition duration-300 ml-4">content_copy</span>
+					</button>
+				</div>
+				
+				<div id="feedback-message" class="hidden justify-center mb-6 text-green-500 text-center">
+	        		Texto copiado com sucesso!
+	    		</div>
+	    		
+			<%} else if (message != null) { %>
+				<div class="mb-6 p-4 bg-red-100 border-l-4 border-red-500 text-red-700">
+					<p><%= message %></p>
+				</div>
+			<%} %>
+			
+			<form action="disconnected.do?action=shorten-link" method="POST" class="space-y-6">
+				<div class="flex items-center border border-gray-500 rounded-lg bg-gray-600 hover:bg-gray-500 transition duration-300">
+					<span class="material-icons text-gray-400 ml-3">link</span>
+					<input class="px-4 py-3 bg-transparent outline-none w-full text-white placeholder-gray-400" type="text" name="link" placeholder="Digite o link completo" required/>
+				</div>
+				
+				<button type="submit" class="w-full bg-green-600 px-6 py-3 text-lg font-bold text-white rounded-lg hover:bg-green-500 transition duration-300">
+					Gerar
+				</button>
+			</form>
+		</div>	
+	</div>
 	
+	<div class="text-center text-white mb-5">
+		<p class="mb-4">Compartilhe em redes sociais, e-mails ou mensagens de texto.</p>
+		<p>Cadastre-se e personalize seu link para facilitar o acesso.</p>
+	</div>
+
+	<div class="text-center mt-5 mb-10">
+		<a href="disconnected.do?action=register-page" class="bg-green-600 px-6 py-3 text-lg text-center font-bold text-white rounded-lg hover:bg-green-500 cursor-pointer transition duration-300 w-full sm:w-auto block sm:inline-block">Cadastre-se para mais funcionalidades</a>
+	</div>	
+
 	<jsp:include page="/includes/footer.jsp" />
 	
 </body>

@@ -10,7 +10,6 @@ public class GetLoggedPageCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
 		return "/logged/index-logged.jsp";
 	}
 }

@@ -31,11 +31,11 @@
             <% if (message != null && success != null) {
 				if (success) {
 			%>
-				<div class="self-center justify-self-start mb-5 text-green-700 text-xl">
+				<div class="self-center justify-self-start mb-5 text-green-500 text-xl">
 					<%= message %>
 				</div>
 			<%  } else { %>
-				<div class="self-center justify-self-start mb-5 text-red-700 text-xl">
+				<div class="self-center justify-self-start mb-5 text-red-500 text-xl">
 					<%= message %>
 				</div>
 				

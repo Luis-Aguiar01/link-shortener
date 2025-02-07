@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <header class="flex p-6 items-center">
-  <div class="flex items-center text-white justify-evenly w-full">
+  <div class="flex items-center text-white justify-none lg:justify-evenly w-full">
 
     <button id="menu-button" class="lg:hidden focus:outline-none">
       <span class="material-icons text-4xl">menu</span>
@@ -12,7 +12,7 @@
       <span class="material-icons text-4xl">home</span>
       <span>Home</span>
     </a>
-     <a href="disconnected.do?action=statistics" class="hidden lg:flex items-center ml-10 gap-2 border-b-2 border-transparent hover:border-white pb-1 text-xl font-bold">
+    <a href="disconnected.do?action=statistics" class="hidden lg:flex items-center ml-10 gap-2 border-b-2 border-transparent hover:border-white pb-1 text-xl font-bold">
       <span class="material-icons text-4xl">equalizer</span>
       <span>Estatísticas</span>
     </a>
@@ -44,6 +44,10 @@
   <a href="disconnected.do?action=register-page" class="block py-2 hover:text-gray-300 transition duration-300">
     <span class="material-icons">how_to_reg</span>
     <span>Cadastrar</span>
+  </a>
+  <a href="disconnected.do?action=statistics" class="block py-2 hover:text-gray-300 transition duration-300">
+      <span class="material-icons text-4xl">equalizer</span>
+      <span>Estatísticas</span>
   </a>
 </div>
 

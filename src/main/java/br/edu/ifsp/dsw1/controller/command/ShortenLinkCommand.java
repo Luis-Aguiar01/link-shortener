@@ -36,7 +36,7 @@ public class ShortenLinkCommand implements Command {
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(link);
 		
-		if(matcher.matches()) {
+		if (matcher.matches()) {
 			while (resultLink == null) {
 				String generatedLink = generateRandomString(length);
 				if (dao.findById(generatedLink) == null) { // Retorna se for único
@@ -50,7 +50,7 @@ public class ShortenLinkCommand implements Command {
 			}
 			request.setAttribute("result_link", resultLink);
 		} else {
-			request.setAttribute("message", "O Link Completo Informado é Inválido.");
+			request.setAttribute("message", "O link completo informado é inválido.");
 		}
 		
 		String view;
