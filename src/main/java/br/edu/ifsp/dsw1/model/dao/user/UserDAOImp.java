@@ -9,8 +9,10 @@ import br.edu.ifsp.dsw1.model.dao.link.LinkDAO;
 import br.edu.ifsp.dsw1.model.entity.Link;
 import br.edu.ifsp.dsw1.model.entity.User;
 
+/*Classe concreta com a implementação do métodos da interface UserDAO*/
 class UserDAOImp implements UserDAO{
 	
+	/*Querys da tabela user_tb*/
 	private static final String INSERT_USER_SQL = "INSERT INTO user_tb(email, name, password) VALUES(?, ?, ?)";
 	private static final String FIND_BY_EMAIL_SQL = "SELECT email, name, password FROM user_tb WHERE email = ?";
 	
@@ -20,6 +22,7 @@ class UserDAOImp implements UserDAO{
 		databaseLink = database;
 	}
 	
+	/*Método para a inserção de novos usuários na tabela do banco de dados.*/
 	@Override
 	public boolean create(User user) {
 		try (var connection = DatabaseConnection.getConnection(); 
@@ -36,6 +39,8 @@ class UserDAOImp implements UserDAO{
 		}
 	}
 	
+	/*Método para retornar um objeto User, com as informações retiradas do 
+	 * banco de dados de acordo com o parâmetro passado.*/
 	@Override
 	public User findByEmail(String email) {
 		User user = null;

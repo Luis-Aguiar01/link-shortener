@@ -20,6 +20,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/*Servlet responsável por processar as requisições feitas pelos usuários logados. 
+ * Apenas pessoas cadastradadas no site poderão ter acesso a essas funcionalidades.
+ * Essas funcionalides são: */
 @WebServlet("/logged.do")
 public class LoggedServlet extends HttpServlet {
 	private final static long serialVersionUID = 1L;

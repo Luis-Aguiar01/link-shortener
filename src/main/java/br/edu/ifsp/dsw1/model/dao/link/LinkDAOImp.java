@@ -11,8 +11,14 @@ import br.edu.ifsp.dsw1.model.entity.Link;
 import br.edu.ifsp.dsw1.model.entity.User;
 import br.edu.ifsp.dsw1.model.enums.LinkType;
 
+/*LinkDAOImp
+ * Classe concreta contendo os métodos implementados da interface LinkDAO 
+ * para a comunicação, inserção, seleção e atualização de dados da tabela Link..
+  */
+
 class LinkDAOImp implements LinkDAO{
 	
+	/*Querys do banco de dados*/
 	private static final String INSERT_LINK_SQL = "INSERT INTO link_tb (short_link, full_link, user_email, type) VALUES (?,?,?, ?)";
 	private static final String DELETE_LINK_SQL = "DELETE FROM link_tb WHERE short_link = ?";
 	private static final String UPDATE_LINK_SQL = "UPDATE link_tb SET short_link = ?, full_link = ? WHERE short_link = ?";
@@ -26,6 +32,8 @@ class LinkDAOImp implements LinkDAO{
 		databaseAccess = daoAccess;
 	}
 
+	/*Método utilizado para a inserção dos dados do novo link na tabela de links do 
+	 * banco de dados*/
 	@Override
 	public boolean create(Link link, String email) {
 		try (var connection = DatabaseConnection.getConnection();
@@ -43,6 +51,7 @@ class LinkDAOImp implements LinkDAO{
 		}
 	}
 	
+	/*Método para deletar os dados do link do banco de dados*/
 	@Override
 	public boolean delete(String link) {
 		try (var connection = DatabaseConnection.getConnection();
@@ -57,6 +66,10 @@ class LinkDAOImp implements LinkDAO{
 		}
 	}
 	
+	/*Método que retorna um objeto do tipo LINK contendo as informações retiradas do 
+	 * banco de acordo com o link customizado passado como parâmetro
+	 * Esse método também associa todos os acessos que estão registrados com esse mesmo 
+	 * link, e acrescenta no objeto a ser retornado essa listas de acessos*/
 	@Override
 	public Link findById(String shortLink) {
 		Link link = null;
@@ -83,6 +96,9 @@ class LinkDAOImp implements LinkDAO{
 		return link;
 	}
 	
+	/*Método para retornar a lista de todos os links que foram criados pelo 
+	 * o User, que foi passado como parâmetro.
+	 * Esse método também guarda todos os Access atrelados pra cada link criado pelo usuário.*/
 	
 	@Override
 	public List<Link> findByUser(User user) {
@@ -112,6 +128,8 @@ class LinkDAOImp implements LinkDAO{
 		return links;
 	}
 
+	/*Método que fará a atualização dos links no banco de dados, que foram 
+	 * passados como parâmetro*/
 	@Override
 	public boolean update(String shortLink, Link link) {
 		try (var connection = DatabaseConnection.getConnection();
@@ -128,6 +146,7 @@ class LinkDAOImp implements LinkDAO{
 		}
 	}
 
+	/*Método que retorna a quantidade de links já registrados no sistema.*/
 	@Override
 	public long count() {
 		long linkQuantity = 0L;

@@ -20,6 +20,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+
+/*Servlet responsável por processar todas as requisições de usuários não logados.
+ * As requisições são para logar, cadastrar, visualizar estatísticas gerais do site, 
+ * entrar em contato com a equipe, encurtar links e a página de dúvidas*/
 @WebServlet("/disconnected.do")
 public class DisconnectedServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
