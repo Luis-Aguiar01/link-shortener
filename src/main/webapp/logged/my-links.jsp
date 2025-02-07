@@ -17,12 +17,17 @@
 <meta charset="UTF-8">
 <title>Meus Links</title>
 <jsp:include page="../includes/links.jsp" />
+<script type="text/javascript" src="scripts/copy-link.js" defer></script>
 </head>
 <body class="flex flex-col min-h-screen bg-gradient-to-t from-gray-800 to-gray-900">
 	
 	<jsp:include page="./includes/logged-header.jsp" />
 	
 	<h1 class="font-bold text-4xl text-center text-white mt-10 mb-8 leading-relaxed">Meus Links &#128279;</h1>
+	
+	<div id="feedback-message" class="hidden justify-center mb-6 text-green-500 text-center">
+		Link copiado com sucesso!
+	</div>
 	
 	<% if (message != null && success != null) {
 		if (success) {
@@ -72,7 +77,11 @@
 								</a> 
 								<a href="logged.do?action=info-link&id=<%= link.getShortLink() %>" title="Detalhes">
 									<span class="material-icons text-gray-500 hover:text-gray-400 transition duration-300">info</span>
-								</a> 
+								</a>
+								<p class="text-to-copy" hidden="true"><%= request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" + link.getShortLink() %></p>
+								<button class="copy-button" title="Copiar">
+									<span class="material-icons text-gray-500 hover:text-gray-400 transition duration-300">content_copy</span>
+								</button>
 							</td>
 						</tr>
 					

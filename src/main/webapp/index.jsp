@@ -33,17 +33,17 @@
 				</div>
 				
 				<div class="flex items-center justify-between mb-6 p-4 bg-gray-600 rounded-lg">
-					<p class="text-md sm:text-lg text-green-400 font-mono break-all font-bold" id="text-to-copy">
+					<p class="text-to-copy text-md sm:text-lg text-green-400 font-mono break-all font-bold">
 						<%= request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" + resultLink %>
 					</p>
 					
-					<button id="copy-button" class="text-center" title="Copiar">
+					<button class="copy-button" class="text-center" title="Copiar">
 						<span class="material-icons text-white hover:text-green-400 transition duration-300 ml-4">content_copy</span>
 					</button>
 				</div>
 				
 				<div id="feedback-message" class="hidden justify-center mb-6 text-green-500 text-center">
-	        		Texto copiado com sucesso!
+	        		Link copiado com sucesso!
 	    		</div>
 	    		
 			<%} else if (message != null) { %>

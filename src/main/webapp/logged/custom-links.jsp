@@ -32,16 +32,16 @@
 				</div>
 				
 				<div class="flex items-center justify-between mb-6 p-4 bg-gray-600 rounded-lg">
-					<p class="text-md sm:text-lg text-green-400 font-mono break-all font-bold" id="text-to-copy">
+					<p class="text-to-copy text-md sm:text-lg text-green-400 font-mono break-all font-bold">
 						<%= request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" + customLink %>
 					</p>
-					<button id="copy-button" class="text-center" title="Copiar">
+					<button class="copy-button" class="text-center" title="Copiar">
 						<span class="material-icons text-white hover:text-green-400 transition duration-300 ml-4">content_copy</span>
 					</button>
 				</div>
 				
 				<div id="feedback-message" class="hidden justify-center mb-6 text-green-500 text-center">
-	        		Texto copiado com sucesso!
+	        		Link copiado com sucesso!
 	    		</div>
 			
 			<%  } else { %>
@@ -59,7 +59,7 @@
 				
 				<div class="flex items-center border border-gray-500 rounded-lg bg-gray-600 hover:bg-gray-500 transition duration-300">
 					<span class="material-icons text-gray-400 ml-3">link</span>
-					<input class="px-4 py-3 bg-transparent outline-none w-full text-white placeholder-gray-400" type="text" name="custom-link" placeholder="Digite o seu link personalizado" minlength="5" maxlength="12" pattern="[a-zA-Z0-9_]{5,12}" required/>
+					<input class="px-4 py-3 bg-transparent outline-none w-full text-white placeholder-gray-400" type="text" name="custom-link" placeholder="Digite o seu link personalizado" minlength="5" maxlength="12" required/>
 				</div>
 			
 				<button type="submit" class="w-full bg-green-600 px-6 py-3 text-lg font-bold text-white rounded-lg hover:bg-green-500 transition duration-300">
