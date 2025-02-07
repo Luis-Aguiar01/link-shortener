@@ -23,7 +23,7 @@
 	
 	<jsp:include page="./includes/logged-header.jsp" />
 	
-	<h1 class="font-bold text-4xl text-center text-white mt-10 mb-8 leading-relaxed">Meus Links &#128279;</h1>
+	<h1 class="font-bold text-3xl text-center text-white mt-10 mb-8 leading-relaxed">Meus Links &#128279;</h1>
 	
 	<div id="feedback-message" class="hidden justify-center mb-6 text-green-500 text-center">
 		Link copiado com sucesso!

@@ -17,14 +17,14 @@
 	<% } %>
 	
 	<div class="self-center sm:w-2/3 mt-8 mb-10 w-full">
-		<h1 class="flex items-center justify-center font-bold text-4xl text-center text-white mt-5 mb-10 leading-relaxed">
+		<h1 class="flex items-center justify-center font-bold text-3xl text-center text-white mt-5 mb-10 leading-relaxed">
 			<span class="material-symbols-outlined text-[30px] mr-5">help</span>
 			Dúvidas Frequentes
 		</h1>
 		
 		<div class="text-center text-white mb-10">
-			<p class="mb-4">Encontre respostas para as perguntas mais comuns abaixo.</p>
-			<p>Se precisar de mais ajuda, entre em contato conosco.</p>
+			<p class="mb-4 text-lg">Encontre respostas para as perguntas mais comuns abaixo.</p>
+			<p class="text-lg">Se precisar de mais ajuda, entre em contato conosco.</p>
 		</div>
 
 		<div class="space-y-4">

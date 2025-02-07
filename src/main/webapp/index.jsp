@@ -66,8 +66,8 @@
 	</div>
 	
 	<div class="text-center text-white mb-5">
-		<p class="mb-4">Compartilhe em redes sociais, e-mails ou mensagens de texto.</p>
-		<p>Cadastre-se e personalize seu link para facilitar o acesso.</p>
+		<p class="mb-4 text-lg">Compartilhe em redes sociais, e-mails ou mensagens de texto.</p>
+		<p class="text-lg">Cadastre-se e personalize seu link para facilitar o acesso.</p>
 	</div>
 
 	<div class="text-center mt-5 mb-10">

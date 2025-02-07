@@ -47,7 +47,7 @@ public class CustomLinkCommand implements Command {
 					}
 				} else {
 					success = false;
-					message = "O link customizado não segue o padrão.";
+					message = "O link customizado não segue o padrão (letras, números e _). ";
 				}
 			} else {
 				success = false;

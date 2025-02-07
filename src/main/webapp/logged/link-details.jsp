@@ -16,7 +16,7 @@
 
 	<jsp:include page="./includes/logged-header.jsp" />
 
-	<h1 class="text-2xl font-bold sm:text-4xl text-center text-white mt-10 mb-8 leading-relaxed">
+	<h1 class="text-2xl font-bold sm:text-3xl text-center text-white mt-10 mb-8 leading-relaxed">
 		Acessos ao seu link "<%= link.getShortLink() %>" (<%= link.getListAccess().size() %>)
 	</h1>
 
