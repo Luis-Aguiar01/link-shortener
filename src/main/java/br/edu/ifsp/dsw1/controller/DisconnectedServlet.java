@@ -57,6 +57,7 @@ public class DisconnectedServlet extends HttpServlet {
 		}
 	
 		var view = command.execute(request, response);
+		//Necessário para o ajax do email, que não retorna nenhuma view
 		if (view != null) {
 	        var dispatcher = request.getRequestDispatcher(view);
 	        dispatcher.forward(request, response);

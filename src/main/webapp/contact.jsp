@@ -36,6 +36,7 @@
 			<p class="text-white text-2xl">Falha ao enviar o email.</p>
 		</div>
 		
+		<!-- Enviado por ajax, por isso não tem action -->
 		<form id="emailForm" class="w-full flex flex-col sm:w-2/3 mx-auto" enctype="application/x-www-form-urlencoded">
 			  <div class="flex items-center border rounded-lg mb-7 bg-gray-100 px-3 hover:bg-gray-200 transition duration-300">
 			    <span class="material-icons text-gray-500 ml-2">person</span>

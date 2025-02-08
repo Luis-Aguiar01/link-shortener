@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- 
+	Testamos no JMeter 100 usuários fazendo mais de 1000 requisições por minuto
+	e o maxTotal de 30 aparentou ser mais do que o suficiente, pois em testes posteriores
+	aguentou mais de 10000 requisições em menos de um minuto
+ -->
 <Context>
 	<Resource
 		name="jdbc/mysql"
 		auth="Container"
 		type="javax.sql.DataSource"
 		initialSize="10"
-		maxTotal="100"
+		maxTotal="30"
 		minIdle="10"
 		maxIdle="20"
 		maxWaitMillis="5000"
 		username="root"
-		password="Naruto123"
+		password="root"
 		driverClassName="com.mysql.cj.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/links_db" />
 </Context>
