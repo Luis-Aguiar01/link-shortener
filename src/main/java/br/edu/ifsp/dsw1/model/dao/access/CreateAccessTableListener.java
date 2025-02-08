@@ -5,6 +5,8 @@ import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 
+// Listener responsável por criar a tabela de acessos sempre que a aplicação inicia
+
 @WebListener
 public class CreateAccessTableListener implements ServletContextListener  {
 	

@@ -15,14 +15,18 @@ public class RedirectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     public void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = request.getRequestURI();
+		// Pega a URL da aplicação
+    	String path = request.getRequestURI();
 	    String contextPath = request.getContextPath() + "/";
 	    String shortCode = path.replaceFirst(contextPath, "");
 	    var linkDao = new LinkDAOFactory().factory();
 		
+	    // Pega o link associado aquele link curto
 	    String redirectTo;
 	    var link = linkDao.findById(shortCode);
 		
+	    // Caso o link curto esteja associado a um link
+	    // cadastra um novo acesso e pega o link longo para redirecionamento.
 	    if (link != null) {
 			var ip = request.getRemoteAddr();
 			var accessDao = new AccessDAOFactory().factory();

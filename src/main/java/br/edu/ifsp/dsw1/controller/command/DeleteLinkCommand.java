@@ -18,6 +18,8 @@ public class DeleteLinkCommand implements Command{
 		var success = dao.delete(short_link);
 		var message = "";
 		
+		// Caso a remoção do link tenha sido bem sucedida, uma nova lista é enviada para
+		// o usuário na sessão.
 		if (success) {
 			var user = (User) request.getSession(false).getAttribute("user");
 			var lista_nova = dao.findByUser(user);

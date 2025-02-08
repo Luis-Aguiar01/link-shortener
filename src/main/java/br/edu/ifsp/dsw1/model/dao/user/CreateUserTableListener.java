@@ -5,6 +5,8 @@ import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 
+// Listener que cria a tabela de usuário assim que a aplicação inicia.
+
 @WebListener
 public class CreateUserTableListener implements ServletContextListener {
 	

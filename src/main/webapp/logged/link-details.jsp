@@ -32,9 +32,9 @@
 					</thead>
 					<tbody>
 					<% 
-                    // Verificando se a lista de acessos não é nula e não está vazia
+                   
                     if (link.getListAccess() != null && !link.getListAccess().isEmpty()) {
-                        // Iterando sobre a lista de acessos
+   
                         for (Access access : link.getListAccess()) {
                     %>
                         <tr class="bg-gray-50 hover:bg-gray-100 transition-all">

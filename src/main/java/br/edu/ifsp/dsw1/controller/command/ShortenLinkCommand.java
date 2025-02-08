@@ -15,13 +15,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class ShortenLinkCommand implements Command {
-	//Command responsável por realizar a ação de criação random de um link customizado para o usuário.
+	
 	private static final String CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_";
 	private static final Random RANDOM = new Random();
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		var dao = new LinkDAOFactory().factory();
+		// Primeiro verifica na sessão se o link foi criado por um usuário logado
+		// ou deslogado.
+		var linkDao = new LinkDAOFactory().factory();
 		var session = request.getSession(false);
 		User user = null;
 		
@@ -29,23 +31,27 @@ public class ShortenLinkCommand implements Command {
 			user = (User) session.getAttribute("user");
 		}
 		
+		// Pega as informações necessárias
 		String resultLink = null;
 		String link = request.getParameter("link");
 		int length = CheckLinkListener.getUrlSize();
 		
+		// Regex para valiar o link longo
 		String regex = "^(https?|ftp):\\/\\/[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}.*$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(link);
 		
 		if (matcher.matches()) {
+			// Continua gerando até gerar um link curto ainda não cadastrado
 			while (resultLink == null) {
 				String generatedLink = generateRandomString(length);
-				if (dao.findById(generatedLink) == null) { // Retorna se for único
+				if (linkDao.findById(generatedLink) == null) { // Retorna nulo se não existe
 					resultLink = generatedLink;
+					// Cadastra para o usuário ou para o sistema.
 					if (user != null) {
-						dao.create(new Link(resultLink, link, LinkType.RANDOM), user.getEmail());
+						linkDao.create(new Link(resultLink, link, LinkType.RANDOM), user.getEmail());
 					} else {
-						dao.create(new Link(resultLink, link, LinkType.RANDOM), null);
+						linkDao.create(new Link(resultLink, link, LinkType.RANDOM), null);
 					}
 				}
 			}

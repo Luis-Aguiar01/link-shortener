@@ -14,7 +14,7 @@ public class GetStatisticsPageCommand implements Command{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		/*Método que a partir de uma instância dos bancos do Link e do Acesso consegue contabilizar o
-		 *total de acesso e de links customizados no sistema e exibi-los na página de estatísticas.*/
+		 total de acesso e de links customizados no sistema e exibi-los na página de estatísticas.*/
 		
 		var linkDao = new LinkDAOFactory().factory();
 		var accessDao = new AccessDAOFactory().factory();

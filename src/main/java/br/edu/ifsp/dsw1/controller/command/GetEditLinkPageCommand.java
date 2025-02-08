@@ -11,6 +11,8 @@ public class GetEditLinkPageCommand implements Command{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Recupera o link pelo ID enviado, e o atribui à request
+		// para preencher os campos do formulário com os dados o link.
 		var short_link = request.getParameter("id");
 		var linkDao = new LinkDAOFactory().factory();
 		var link = linkDao.findById(short_link);

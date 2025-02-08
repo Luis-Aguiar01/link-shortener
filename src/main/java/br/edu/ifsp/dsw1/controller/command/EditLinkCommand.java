@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import br.edu.ifsp.dsw1.model.dao.link.LinkDAO;
 import br.edu.ifsp.dsw1.model.dao.link.LinkDAOFactory;
 import br.edu.ifsp.dsw1.model.entity.Link;
 import jakarta.servlet.ServletException;
@@ -19,10 +18,11 @@ public class EditLinkCommand implements Command{
 		var id = request.getParameter("id");
 		var shortLink = request.getParameter("short-link");
 		var fullLink = request.getParameter("full-link");
-		LinkDAO dao = new LinkDAOFactory().factory();
-		var success = true;
+		var linkdao = new LinkDAOFactory().factory();
+		var success = false;
 		var message = "";
 		
+		// Verifica se o novo link longo está no padrão.
 		String regex = "^(https?|ftp):\\/\\/[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}.*$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(fullLink);
@@ -33,39 +33,37 @@ public class EditLinkCommand implements Command{
 				pattern = Pattern.compile(regex);
 				matcher = pattern.matcher(shortLink);
 				
+				// Verifica se o link curto está no padrão.
 				if (matcher.matches()) {
 					Link link = new Link();
 					link.setFullLink(fullLink);
 					link.setShortLink(shortLink);
 					
-					if (dao.update(id, link)) {
+					// Atualiza com os novos dados, caso o link curto e longo estejam válios.
+					if (linkdao.update(id, link)) {
 						message = "Link editado com sucesso!";
+						success = true;
 					} else {
-						success = false;
 						message = "Não foi possível editar o link.";
 					}
 				}
 				else {
-					success = false;
 					message = "O link customizado não segue o padrão.";
 				}	
 			} else {
-				success = false;
 				message = "O link curto deve ter de 5 a 12 caracteres.";
 			}
-			
 		} else {
-			success = false;
 			message = "O link completo informado é inválido.";
 		}
 		
 		request.setAttribute("success", success);
 		request.setAttribute("message", message);
 			
-		if(success) {
+		if (success) {
 			return "logged.do?action=my-links-page";
 		} else {
-			request.setAttribute("link", dao.findById(id)); // Mandar Link Novamente Para Pré-Preencher o Formulário Novamente.
+			request.setAttribute("link", linkdao.findById(id)); // Mandar Link Novamente Para Pré-Preencher o Formulário Novamente.
 			return "logged.do?action=edit-link-page";	
 		}
 	}

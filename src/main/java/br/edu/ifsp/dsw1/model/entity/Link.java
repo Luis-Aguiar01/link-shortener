@@ -8,7 +8,7 @@ import br.edu.ifsp.dsw1.model.enums.LinkType;
 public class Link {
 	private String shortLink;
 	private String fullLink;
-	private LinkType type;
+	private LinkType type; // Não foi preciso usar, mas seria para próximas funcionalidades.
 	private List<Access> listAccess;
 	
 	public Link() {}
@@ -18,7 +18,6 @@ public class Link {
 		this.shortLink = shortLink;
 		this.fullLink = fullLink;
 		this.type = type;
-		
 	}
 	
 	public void setListAccess(List<Access> listAccess) {

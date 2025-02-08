@@ -15,6 +15,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/*
+	Nós queriamos encontrar uma forma de enviar emails pelo Java, que não fosse o mailto do formulário,
+	porque isso apenas abre o aplicativo de envio de email do computador, queriamos algo mais automaticado.
+	Pesquisando, encontramos essa API do Java, para envio dos emails, junto com explicações de como 
+	poderiamos usá-la para enviar os emails. Deixamos o email no código, por ser mais fácil de testar.
+	OBS: O método retorna null porque a requisição é feita por AJAX, ou seja, não vai retornar nada.
+*/
+
 public class SendEmailCommand implements Command {
 
 	@Override

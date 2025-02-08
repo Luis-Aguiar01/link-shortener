@@ -5,6 +5,8 @@ import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 
+// Listener que cria a tabela de links assim que a aplicação inicia.
+
 @WebListener
 public class CreateLinkTableListener implements ServletContextListener  {
 	
